@@ -23,9 +23,15 @@ export const metadata: Metadata = {
   ],
   applicationName: "Midecodes",
   twitter: {
-    site: "@midecodes",
-    creator: "@midecodes",
+    site: "@midecodeable",
+    creator: "@midecodeable",
+    description: "Frontend Developer based in Lagos, Nigeria",
+    images: [
+      "https://pbs.twimg.com/profile_images/1648960890828365826/JghfLY_8_400x400.jpg",
+    ],
+    title: "Midecodes",
   },
+  openGraph: {},
   authors: {
     name: "Sunday Olomitutu",
     url: "https://mide.codes",
