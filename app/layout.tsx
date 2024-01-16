@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Midecodes",
   description: "Frontend Developer based in Lagos, Nigeria",
+
   keywords: [
     "React Developer",
     "Frontend Developer",
@@ -38,6 +39,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
       <body className={inter.className}>{children}</body>
     </html>
   );
