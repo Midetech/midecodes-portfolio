@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
@@ -7,9 +5,19 @@ export default function Home() {
         <p className="text-4xl text-white font-bold">Mide.codes</p>
         <code>Frontend Engineer</code>
       </div>
-      <div className="flex flex-col items-center justify-center gap-5 mt-5">
-        <a href="mailto:faginorish@gmail.com">Email me</a>
-        <a href="tel:+2347062311779">Call me</a>
+      <div className="flex items-center justify-center gap-5 mt-5">
+        <a
+          className="w-[120px] h-[48px] rounded-[4px] bg-blue-900 text-white flex items-center justify-center gap-2"
+          href="mailto:faginorish@gmail.com"
+        >
+          Email me
+        </a>
+        <a
+          className="w-[120px] h-[48px] rounded-[4px] bg-green-500 text-white flex items-center justify-center gap-2"
+          href="tel:+2347062311779"
+        >
+          Call me
+        </a>
       </div>
     </main>
   );
