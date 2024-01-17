@@ -24,18 +24,25 @@ export default function Home() {
           />
           <code>Frontend Engineer</code>
         </div>
-        <div className="flex items-center justify-center gap-5 mt-5">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-5 mt-5">
           <a
             className="w-[120px] h-[48px] rounded-[4px] bg-blue-900 text-white flex items-center justify-center gap-2"
             href="mailto:faginorish@gmail.com"
           >
-            Email me
+            <code> Email me</code>
+          </a>
+          <a
+            className="w-[130px] h-[48px] rounded-[4px] bg-green-500 text-white flex items-center justify-center gap-2"
+            href="/Updated-Sunday-Olomitutu.pdf"
+            download={true}
+          >
+            <code> Download CV</code>
           </a>
           <a
             className="w-[120px] h-[48px] rounded-[4px] bg-green-500 text-white flex items-center justify-center gap-2"
             href="tel:+2347062311779"
           >
-            Call me
+            <code> Call me</code>
           </a>
         </div>
       </div>
