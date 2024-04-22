@@ -95,7 +95,7 @@ export default function RootLayout({
     <html lang="en">
       <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
       <body
-        className={`${Garet.className} ${Nourd.className} flex flex-col items-center bg-[#F5F7FF] relative overflow-x-hidden`}
+        className={`${Garet.className} ${Nourd.className} flex flex-col items-center bg-[#F5F7FF] dark:bg-black relative overflow-x-hidden`}
       >
         <Provider>
           <main className="dark:bg-[#000] overflow-y-scroll w-full relative">
