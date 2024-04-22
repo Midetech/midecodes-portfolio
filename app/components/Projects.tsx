@@ -12,7 +12,7 @@ const Projects = () => {
       <div className="flex lg:gap-[21px] gap-y-[21px] flex-wrap">
         <a target="_blank" href="https://mygift.myserviceagent.net/">
           <div className="lg:w-[538px] lg:h-[538px] bg-[#C3D5E6] rounded-[15px] lg:px-20 px-10 lg:pt-[53px] pt-10 overflow-hidden">
-            <img src="/images/mygift.png" alt="mygift" className="h-full" />
+            <img src="/images/mygift.png" alt="mygift" />
           </div>
         </a>
         <a target="_blank" href="https://purplesale.finance/">
@@ -31,11 +31,7 @@ const Projects = () => {
         </a>
         <a target="_blank" href="https://myserviceagent.net/">
           <div className="lg:w-[538px] lg:h-[538px] bg-[#EB2931] rounded-[15px] lg:px-20 px-10 lg:pt-[53px] pt-10 overflow-hidden">
-            <img
-              src="/images/myserviceagent.png"
-              alt="myserviceagent"
-              className="h-full"
-            />
+            <img src="/images/myserviceagent.png" alt="myserviceagent" />
           </div>
         </a>
       </div>
