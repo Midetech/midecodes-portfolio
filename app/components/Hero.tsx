@@ -27,11 +27,12 @@ const Hero = () => {
           </p>
 
           <div className="flex lg:items-center gap-4 flex-col lg:flex-row">
-            <Button className="flex justify-center items-center gap-4 w-[166px] h-[47px]">
-              View Projects{" "}
-              <ArrowRight className="stroke-black dark:stroke-white" />
-            </Button>
-
+            <Link href={"#projects"}>
+              <Button className="flex justify-center items-center gap-4 w-[166px] h-[47px]">
+                View Projects{" "}
+                <ArrowRight className="stroke-black dark:stroke-white" />
+              </Button>
+            </Link>
             <div className="w-[64px] h-[2px] bg-[#6E6E6E] dark:bg-white"></div>
 
             <div className="flex items-center gap-4">

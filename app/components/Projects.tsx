@@ -4,7 +4,10 @@ import React from "react";
 
 const Projects = () => {
   return (
-    <div className="mb-52 lg:px-10 px-5 flex flex-col justify-center items-center gap-y-[53px]">
+    <div
+      id="projects"
+      className="mb-52 lg:px-10 px-5 flex flex-col justify-center items-center gap-y-[53px]"
+    >
       <p className="text-black lg:text-[40px] lg:leading-normal text-2xl font-bold lg:w-[637px] self-start">
         Some various types of projects I’ve done so far
       </p>
