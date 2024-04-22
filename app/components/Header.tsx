@@ -19,9 +19,9 @@ const Header = () => {
           </div>
 
           <div className="flex items-center gap-x-[9px]">
-            <Button className="font-sans flex justify-center items-center gap-3 lg:gap-6 w-[137px] h-[41px] dark:border-black dark:!text-black">
+            <Button className="font-sans flex justify-center items-center gap-3 lg:gap-6 w-[137px] h-[41px] dark:!border-white dark:!text-white lg:dark:!border-black lg:dark:!text-black">
               Let’s Talk{" "}
-              <ArrowRight className="stroke-black dark:stroke-black" />
+              <ArrowRight className="stroke-black dark:stroke-white lg:dark:stroke-black" />
             </Button>
             <Button className="font-sans flex justify-center items-center gap-6 border-none lg:w-fit h-[41.215px]  w-[51px]">
               <ToggleIcon className="fill-white dr stroke-black " />
