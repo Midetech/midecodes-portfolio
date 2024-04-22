@@ -50,13 +50,15 @@ const Footer = () => {
                 <span className="text-black dark:text-white">codes</span>
               </p>
             </div>
-            <div className="lg:w-[320px] w-full">
+            <div className="lg:w-[420px] w-full">
               <p className="text-black dark:text-white font-sans font-bold text-[16px] pb-2">
-                Building enjoyable experiences
+                Building amazing tech products
               </p>
               <p className="text-black dark:text-white font-sans text-[14px]">
-                Web developer and UI/UX Designer with over 5 years of experience
-                ready to take your online business to the next level.
+                Crafting seamless user experiences across web and mobile
+                platforms, I thrive on blending cutting-edge technologies with
+                intuitive design to build products that captivate and engage
+                users.
               </p>
             </div>
           </div>
