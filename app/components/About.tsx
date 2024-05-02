@@ -13,7 +13,7 @@ const About = () => {
       <div>
         <div className="lg:w-[860px] space-y-6 self-start">
           <p className="text-black dark:text-white font-serif text-[16px] font-[300] ">
-            <span className="font-bold">Sunday Olomitutu here,</span> Passionate
+            <span className="font-bold">Sunday Olomitutu</span>here, passionate
             Frontend Developer adept in all stages of advanced web development.
             Knowledgeable in user interface, testing, and debugging processes.
             Equipped with a diverse and promising skill-set. Proficient in an

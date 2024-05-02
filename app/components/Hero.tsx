@@ -17,7 +17,8 @@ const Hero = () => {
           </div>
           <div className="lg:w-[725px] w-[400px] ">
             <p className="font-serif font-[700] lg:text-[44px] text-[22px] leading-[118%] text-black dark:text-white">
-              Design and Codes Solution for target costumers
+              Crafting seamless user experiences across web and mobile
+              platforms.
             </p>
           </div>
 
