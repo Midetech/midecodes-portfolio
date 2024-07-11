@@ -14,7 +14,7 @@ import { BorderBeam } from "@/components/magicui/border-beam";
 const Footer = () => {
   return (
     <div className="dark:bg-black bg-[#EDEFF7] py-4 relative w-full lg:h-[404px] h-[824px] lg:px-10 px-5 flex flex-col justify-end ">
-      <div className="border-dashed border-[1px] border-[#A7A7A7] bg-white dark:bg-black rounded-[22px] py-6  flex flex-col lg:flex-row justify-between lg:gap-x-[200px] gap-y-5 lg:px-10 px-5 lg:mx-5 absolute lg:-top-24 -top-[150px] lg:left-24 right-2 ">
+      <div className="border-dashed border-[0.2px] border-[#A7A7A7] bg-white dark:bg-black rounded-[22px] py-6  flex flex-col lg:flex-row justify-between lg:gap-x-[200px] gap-y-5 lg:px-10 px-5 lg:mx-5 absolute lg:-top-24 -top-[150px] lg:left-24 right-2 shadow">
         <div className="flex lg:items-center lg:flex-row flex-col  gap-[26px] ">
           <CoffeeImage />
           <div className="lg:w-[366px] w-full h-[96px]">
