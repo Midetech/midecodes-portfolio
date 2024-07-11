@@ -8,26 +8,26 @@ import { ArrowRight, GitHub, LinkedIn, Twitter } from "./Icons";
 
 const Hero = () => {
   return (
-    <div className="w-full flex flex-col justify-center items-center lg:pl-10 ">
+    <div className="w-full flex flex-col justify-center items-center lg:pl-10  overflow-hidden relative">
       <Meteors number={30} />
       <div className="w-full flex flex-col gap-y-10 lg:flex-row items-center relative  lg:mt-0 mt-[109px]">
         <div className="lg:w-[735px] w-full flex lg:gap-[45px] gap-y-5 flex-col pl-4">
-          <BoxReveal boxColor={"#5046e6"} duration={0.5}>
-            <div className="lg:w-[536px] w-[306px] h-[62px] rounded-[4px] bg-[#ffd496] flex justify-center items-center">
+          <div className="lg:w-[536px] w-[306px] h-[62px] rounded-[4px] bg-[#ffd496] flex justify-center items-center">
+            <BoxReveal boxColor={"#5046e6"} duration={0.5}>
               <p className="text-black lg:text-[28px] text-[16px] font-serif font-medium">
                 {" "}
                 Frontend Engineer & Mobile App Dev
               </p>
-            </div>
-          </BoxReveal>
-          <BoxReveal boxColor={"#5046e6"} duration={0.5}>
-            <div className="lg:w-[725px] w-[400px] ">
-              <p className="font-serif font-[700] lg:text-[44px] text-[22px] leading-[118%] text-black dark:text-white">
+            </BoxReveal>
+          </div>
+          <div className="lg:w-[725px] w-[400px] ">
+            <BoxReveal boxColor={"#5046e6"} duration={0.5}>
+              <p className="font-serif font-[700] lg:text-[44px] text-[20px] leading-[118%] text-black dark:text-white">
                 Crafting seamless user experiences across web and mobile
                 platforms.
               </p>
-            </div>
-          </BoxReveal>
+            </BoxReveal>
+          </div>
           <BoxReveal boxColor={"#5046e6"} duration={0.5}>
             <p className="lg:w-[524px] w-[400px] text-[18px] font-sans text-black  dark:text-white">
               Passionate Frontend Developer adept in all stages of advanced web
