@@ -9,11 +9,12 @@ import {
 } from "./Icons";
 import Link from "next/link";
 import Button from "./Button";
+import { BorderBeam } from "@/components/magicui/border-beam";
 
 const Footer = () => {
   return (
     <div className="dark:bg-black bg-[#EDEFF7] py-4 relative w-full lg:h-[404px] h-[824px] lg:px-10 px-5 flex flex-col justify-end ">
-      <div className="border-dashed border-[1px] border-[#A7A7A7] bg-white dark:bg-black rounded-[22px] py-6  flex flex-col lg:flex-row justify-between lg:gap-x-[200px] gap-y-5 lg:px-10 px-5 lg:mx-5 absolute lg:-top-24 -top-[150px] lg:left-24 right-2">
+      <div className="border-dashed border-[1px] border-[#A7A7A7] bg-white dark:bg-black rounded-[22px] py-6  flex flex-col lg:flex-row justify-between lg:gap-x-[200px] gap-y-5 lg:px-10 px-5 lg:mx-5 absolute lg:-top-24 -top-[150px] lg:left-24 right-2 ">
         <div className="flex lg:items-center lg:flex-row flex-col  gap-[26px] ">
           <CoffeeImage />
           <div className="lg:w-[366px] w-full h-[96px]">
@@ -37,6 +38,7 @@ const Footer = () => {
             </Button>
           </Link>
         </div>
+        <BorderBeam size={350} duration={15} delay={9} />
       </div>
       <div className="w-full flex flex-col gap-7">
         <div className="flex lg:justify-between lg:gap-12 gap-y-10 dark:text-white text-black w-full flex-col  lg:flex-row">

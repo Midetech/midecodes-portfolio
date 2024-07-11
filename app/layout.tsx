@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import localFont from "next/font/local";
 import Provider from "./components/Provider";
 import ThemeSwitcher from "./components/ThemeSwitcher";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import localFont from "next/font/local";
-import Image from "next/image";
+import "./globals.css";
 
 const Garet = localFont({
   src: [
