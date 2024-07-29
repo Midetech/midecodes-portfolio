@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import Provider from "./components/Provider";
 import ThemeSwitcher from "./components/ThemeSwitcher";
 import "./globals.css";
+import { Dock } from "@/components/magicui/dock";
+import { DockDemo } from "./components/DockActions";
 
 const Garet = localFont({
   src: [
@@ -95,11 +97,8 @@ export default function RootLayout({
       >
         <Provider>
           <main className="dark:bg-[#000] overflow-y-scroll w-full relative">
-            <div className="fixed top-[22rem] lg:left-2 right-6 z-[99] ">
-              <ThemeSwitcher />
-            </div>
-
             {children}
+            <DockDemo />
           </main>
         </Provider>
       </body>

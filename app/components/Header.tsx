@@ -1,7 +1,5 @@
-import React from "react";
-import { ArrowRight, LogoIcon, ToggleIcon } from "./Icons";
 import Button from "./Button";
-import Image from "next/image";
+import { ArrowRight, LogoIcon, ToggleIcon } from "./Icons";
 
 const Header = () => {
   return (

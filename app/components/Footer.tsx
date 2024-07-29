@@ -5,7 +5,7 @@ import {
   GitHub,
   LinkedIn,
   LogoIcon,
-  Twitter,
+  XIcon,
 } from "./Icons";
 import Link from "next/link";
 import Button from "./Button";
@@ -116,7 +116,7 @@ const Footer = () => {
               </Link>
               <Link href={"https://twitter.com/midecodeable"}>
                 <div className="w-[34px] h-[34px]  p-[2px] rounded-full flex justify-center items-center">
-                  <Twitter />
+                  <XIcon />
                 </div>
               </Link>
             </div>
