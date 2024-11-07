@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     description: "Frontend Developer based in Lagos, Nigeria",
     images: [
       {
-        url: "/images/mide-image.png",
+        url: "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
         width: 1200,
         height: 630,
         alt: "Midecodes",
@@ -88,7 +88,9 @@ export const metadata: Metadata = {
     creator: "@midecodeable",
     title: "Sunday Olomitutu",
     description: "Frontend Developer based in Lagos, Nigeria",
-    images: ["/images/mide-image.png"],
+    images: [
+      "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
+    ],
   },
 
   authors: {
@@ -106,7 +108,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: "Sunday Olomitutu",
-    image: "/images/placeholder.jpg",
+    image:
+      "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
     datePublished: new Date().toISOString(),
     author: {
       "@type": "Person",

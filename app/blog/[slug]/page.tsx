@@ -48,7 +48,9 @@ export async function generateMetadata({
       publishedTime: new Date(post.createdAt).toISOString(),
       images: [
         {
-          url: post.image ? post.image : "/images/placeholder.jpg",
+          url: post.image
+            ? post.image
+            : "https://res.cloudinary.com/mideveloper/image/upload/v1731019367/placeholder_jmujiv.jpg",
           width: 1200,
           height: 630,
           alt: post.title,
@@ -59,7 +61,11 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: post.title,
       description: post.content.substring(0, 160),
-      images: [post.image ? post.image : "/images/placeholder.jpg"],
+      images: [
+        post.image
+          ? post.image
+          : "https://res.cloudinary.com/mideveloper/image/upload/v1731019367/placeholder_jmujiv.jpg",
+      ],
     },
   };
 }
@@ -82,7 +88,9 @@ export default async function BlogPost({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
-    image: post.image ? post.image : "/images/placeholder.jpg",
+    image: post.image
+      ? post.image
+      : "https://res.cloudinary.com/mideveloper/image/upload/v1731019367/placeholder_jmujiv.jpg",
     datePublished: post.date,
     author: {
       "@type": "Person",
@@ -153,7 +161,11 @@ export default async function BlogPost({
         </div>
       </div>
       <Image
-        src={post.image ? post.image : "/images/placeholder.jpg"}
+        src={
+          post.image
+            ? post.image
+            : "https://res.cloudinary.com/mideveloper/image/upload/v1731019367/placeholder_jmujiv.jpg"
+        }
         alt={post.title}
         width={1200}
         height={630}
