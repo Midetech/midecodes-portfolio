@@ -67,15 +67,7 @@ export const metadata: Metadata = {
     "Typescript Developer",
   ],
   applicationName: "Midecodes",
-  twitter: {
-    site: "@midecodeable",
-    creator: "@midecodeable",
-    description: "Frontend Developer based in Lagos, Nigeria",
-    images: [
-      "https://pbs.twimg.com/profile_images/1648960890828365826/JghfLY_8_400x400.jpg",
-    ],
-    title: "Midecodes",
-  },
+
   openGraph: {
     type: "website",
     url: "https://mide.codes",
@@ -83,12 +75,20 @@ export const metadata: Metadata = {
     description: "Frontend Developer based in Lagos, Nigeria",
     images: [
       {
-        url: "https://pbs.twimg.com/profile_images/1648960890828365826/JghfLY_8_400x400.jpg",
-        width: 400,
-        height: 400,
+        url: "/images/mide-image.png",
+        width: 1200,
+        height: 630,
         alt: "Midecodes",
       },
     ],
+  },
+
+  twitter: {
+    site: "@midecodeable",
+    creator: "@midecodeable",
+    title: "Sunday Olomitutu",
+    description: "Frontend Developer based in Lagos, Nigeria",
+    images: ["/images/mide-image.png"],
   },
 
   authors: {
@@ -102,8 +102,23 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: "Sunday Olomitutu",
+    image: "/images/placeholder.jpg",
+    datePublished: new Date().toISOString(),
+    author: {
+      "@type": "Person",
+      name: "Sunday Olomitutu",
+    },
+  };
   return (
     <html lang="en">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
       <body
         className={`${Garet.className} ${Nourd.className} flex flex-col items-center bg-[#F5F7FF] dark:bg-black relative overflow-x-hidden`}

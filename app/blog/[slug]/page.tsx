@@ -40,6 +40,7 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.content.substring(0, 160),
+    keywords: post.tags,
     openGraph: {
       title: post.title,
       description: post.content.substring(0, 160),
@@ -85,7 +86,7 @@ export default async function BlogPost({
     datePublished: post.date,
     author: {
       "@type": "Person",
-      name: post.author.name,
+      name: "Sunday Olomitutu",
     },
   };
 
