@@ -2,14 +2,11 @@
 "use client";
 
 import About from "@/components/About";
-import { DockDemo } from "@/components/DockActions";
-import Editor from "@/components/Editor";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import { IconCloudDemo } from "@/components/IconCloudDemo";
 import Projects from "@/components/Projects";
-import Skills from "@/components/Skills";
 export default function Home() {
   return (
     <div className="w-full flex justify-center relative flex-col">
@@ -18,9 +15,6 @@ export default function Home() {
       <About />
       <IconCloudDemo />
       {/* <Skills /> */}
-      <div className="px-10 border">
-        <Editor />
-      </div>
       <Projects />
       <Footer />
     </div>

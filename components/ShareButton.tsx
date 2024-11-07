@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ReactNode } from "react";
 
 type ShareButtonProps = {
-  network: "twitter" | "facebook" | "linkedin" | "whatsapp";
+  network: "x" | "facebook" | "linkedin" | "whatsapp";
   url: string;
   title?: string;
   children: ReactNode;
@@ -23,8 +23,8 @@ export default function ShareButton({
     let shareUrl = "";
 
     switch (network) {
-      case "twitter":
-        shareUrl = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`;
+      case "x":
+        shareUrl = `https://x.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`;
         break;
       case "facebook":
         shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;

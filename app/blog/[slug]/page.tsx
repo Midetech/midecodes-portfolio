@@ -1,3 +1,4 @@
+import { Icons } from "@/components/DockActions";
 import MarkdownRenderer from "@/components/MardownRenderer";
 import ShareButton from "@/components/ShareButton";
 import { Card, CardContent } from "@/components/ui/card";
@@ -102,7 +103,7 @@ export default async function BlogPost({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-      <div className="flex items-center mb-6">
+      <div className="flex flex-col md:flex-row justify-between mb-6 gap-y-4">
         <div className="flex items-center gap-x-2">
           <p className="text-sm text-gray-500">
             {new Date(post.createdAt).toLocaleString("en-us", {
@@ -115,6 +116,40 @@ export default async function BlogPost({
           <p className="text-sm text-gray-500">
             {calculateReadTime(post.content)} min read
           </p>
+        </div>
+        <div className="flex space-x-4">
+          <ShareButton
+            network="x"
+            url={`https://mide.codes/blog/${params.slug}?id=${post._id}`}
+            title={post.title}
+          >
+            <Icons.x className="h-5 w-5" />
+            <span className="sr-only">Share on Twitter</span>
+          </ShareButton>
+          <ShareButton
+            network="facebook"
+            url={`https://mide.codes/blog/${params.slug}?id=${post._id}`}
+          >
+            <Icons.facebook className="h-5 w-5" />
+            <span className="sr-only">Share on Facebook</span>
+          </ShareButton>
+          <ShareButton
+            network="linkedin"
+            url={`https://mide.codes/blog/${params.slug}?id=${post._id}`}
+            title={post.title}
+          >
+            {" "}
+            <Icons.linkedin className="h-5 w-5" />
+            <span className="sr-only">Share on LinkedIn</span>
+          </ShareButton>
+          <ShareButton
+            network="whatsapp"
+            url={`https://mide.codes/blog/${params.slug}?id=${post._id}`}
+            title={post.title}
+          >
+            <Icons.whatsapp className="h-5 w-5" />
+            <span className="sr-only">Share on WhatsApp</span>
+          </ShareButton>
         </div>
       </div>
       <Image
@@ -132,47 +167,35 @@ export default async function BlogPost({
           <h2 className="text-xl font-semibold mb-4">Share this post</h2>
           <div className="flex space-x-4">
             <ShareButton
-              network="twitter"
-              url={`https://yourblog.com/blog/${post.slug}`}
+              network="x"
+              url={`https://mide.codes/blog/${params.slug}?id=${post._id}`}
               title={post.title}
             >
-              <Twitter className="h-5 w-5" />
+              <Icons.x className="h-5 w-5" />
               <span className="sr-only">Share on Twitter</span>
             </ShareButton>
             <ShareButton
               network="facebook"
-              url={`https://yourblog.com/blog/${post.slug}`}
+              url={`https://mide.codes/blog/${params.slug}?id=${post._id}`}
             >
-              <Facebook className="h-5 w-5" />
+              <Icons.facebook className="h-5 w-5" />
               <span className="sr-only">Share on Facebook</span>
             </ShareButton>
             <ShareButton
               network="linkedin"
-              url={`https://yourblog.com/blog/${post.slug}`}
+              url={`https://mide.codes/blog/${params.slug}?id=${post._id}`}
               title={post.title}
             >
-              <Linkedin className="h-5 w-5" />
+              {" "}
+              <Icons.linkedin className="h-5 w-5" />
               <span className="sr-only">Share on LinkedIn</span>
             </ShareButton>
             <ShareButton
               network="whatsapp"
-              url={`https://yourblog.com/blog/${post.slug}`}
+              url={`https://mide.codes/blog/${params.slug}?id=${post._id}`}
               title={post.title}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5"
-              >
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-              </svg>
+              <Icons.whatsapp className="h-5 w-5" />
               <span className="sr-only">Share on WhatsApp</span>
             </ShareButton>
           </div>
