@@ -5,6 +5,7 @@ import ShineBorder from "@/components/magicui/shine-border";
 import Link from "next/link";
 import Button from "./Button";
 import { ArrowRight, GitHub, LinkedIn, Twitter } from "./Icons";
+import CustomeName from "./Name";
 
 const Hero = () => {
   return (
@@ -14,10 +15,11 @@ const Hero = () => {
         <div className="lg:w-[735px] w-full flex lg:gap-[45px] gap-y-5 flex-col pl-4">
           <div className="lg:w-[536px] w-[306px] h-[62px] rounded-[4px] bg-[#ffd496] flex justify-center items-center">
             <BoxReveal boxColor={"#5046e6"} duration={0.5}>
-              <p className="text-black lg:text-[28px] text-[16px] font-serif font-medium">
+              {/* <p className="text-black lg:text-[28px] text-[16px] font-serif font-medium">
                 {" "}
                 Frontend Engineer & Mobile App Dev
-              </p>
+              </p> */}
+              <CustomeName />
             </BoxReveal>
           </div>
           <div className="lg:w-[725px] w-[400px] ">

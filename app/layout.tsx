@@ -1,10 +1,8 @@
+import { DockDemo } from "@/components/DockActions";
+import Provider from "@/components/Provider";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Provider from "./components/Provider";
-import ThemeSwitcher from "./components/ThemeSwitcher";
 import "./globals.css";
-import { Dock } from "@/components/magicui/dock";
-import { DockDemo } from "./components/DockActions";
 
 const Garet = localFont({
   src: [
@@ -55,6 +53,7 @@ export const metadata: Metadata = {
   description: "Frontend Developer based in Lagos, Nigeria",
 
   keywords: [
+    "Mobile App Developer",
     "React Developer",
     "Frontend Developer",
     "Next.js Developer",
@@ -77,7 +76,21 @@ export const metadata: Metadata = {
     ],
     title: "Midecodes",
   },
-  openGraph: {},
+  openGraph: {
+    type: "website",
+    url: "https://mide.codes",
+    title: "Midecodes",
+    description: "Frontend Developer based in Lagos, Nigeria",
+    images: [
+      {
+        url: "https://pbs.twimg.com/profile_images/1648960890828365826/JghfLY_8_400x400.jpg",
+        width: 400,
+        height: 400,
+        alt: "Midecodes",
+      },
+    ],
+  },
+
   authors: {
     name: "Sunday Olomitutu",
     url: "https://www.mide.codes",
@@ -98,7 +111,7 @@ export default function RootLayout({
         <Provider>
           <main className="dark:bg-[#000] overflow-y-scroll w-full relative">
             {children}
-            <DockDemo />
+            {<DockDemo />}
           </main>
         </Provider>
       </body>
