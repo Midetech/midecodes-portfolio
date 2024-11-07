@@ -195,7 +195,7 @@ export default async function BlogPost({
               url={`https://mide.codes/blog/${params.slug}?id=${post._id}`}
               title={post.title}
             >
-              <Icons.whatsapp className="h-5 w-5" />
+              <Icons.whatsapp className="h-5 w-5 dark:fill-white" />
               <span className="sr-only">Share on WhatsApp</span>
             </ShareButton>
           </div>
