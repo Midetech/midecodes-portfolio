@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: "https://mide.codes/blog",
     images: [
       {
-        url: "/blog-og-image.jpg",
+        url: "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
         width: 1200,
         height: 630,
         alt: "Blog Posts | Your Blog Name",
@@ -28,7 +28,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Blog Posts | Your Blog Name",
     description: "Read our latest blog posts on various topics.",
-    images: ["/blog-og-image.jpg"],
+    images: [
+      "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
+    ],
   },
 };
 
