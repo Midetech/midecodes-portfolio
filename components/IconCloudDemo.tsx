@@ -4,7 +4,6 @@ const slugs = [
   "typescript",
   "javascript",
   "dart",
-  "java",
   "react",
   "angular",
   "flutter",
