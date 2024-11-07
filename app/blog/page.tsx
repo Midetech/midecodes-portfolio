@@ -47,7 +47,6 @@ const getBlogPosts = async () => {
 
 export default async function BlogList() {
   const posts: IPost[] = await getBlogPosts();
-  console.log(posts);
   const calculateReadTime = (content: string) => {
     const wordsPerMinute = 200;
     const words = content.trim().split(/\s+/).length;
