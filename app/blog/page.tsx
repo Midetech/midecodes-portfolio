@@ -8,10 +8,10 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Blog Posts | Your Blog Name",
+  title: "Blog Posts | Midecodes' Blog",
   description: "Read our latest blog posts on various topics.",
   openGraph: {
-    title: "Blog Posts | Your Blog Name",
+    title: "Blog Posts | Midecodes' Blog",
     description: "Read our latest blog posts on various topics.",
     type: "website",
     url: "https://mide.codes/blog",
@@ -20,13 +20,13 @@ export const metadata: Metadata = {
         url: "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
         width: 1200,
         height: 630,
-        alt: "Blog Posts | Your Blog Name",
+        alt: "Blog Posts | Midecodes' Blog",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog Posts | Your Blog Name",
+    title: "Blog Posts | Midecodes' Blog",
     description: "Read our latest blog posts on various topics.",
     images: [
       "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
