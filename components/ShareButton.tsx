@@ -37,12 +37,12 @@ export default function ShareButton({
         break;
     }
 
-    window.open(shareUrl, "_blank", "noopener,noreferrer");
+    return shareUrl;
   };
 
   return (
-    <Button variant="outline" size="icon" onClick={handleShare}>
+    <a target="_blank" rel="noopener noreferrer" href={handleShare()}>
       {children}
-    </Button>
+    </a>
   );
 }

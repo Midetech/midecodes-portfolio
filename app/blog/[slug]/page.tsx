@@ -121,7 +121,7 @@ export default async function BlogPost({
           <ShareButton
             network="x"
             url={`https://mide.codes/blog/${params.slug}?id=${post._id}`}
-            title={post.title}
+            title={post.title + " — " + post.content.substring(0, 160)}
           >
             <Icons.x className="h-5 w-5" />
             <span className="sr-only">Share on Twitter</span>
@@ -136,7 +136,7 @@ export default async function BlogPost({
           <ShareButton
             network="linkedin"
             url={`https://mide.codes/blog/${params.slug}?id=${post._id}`}
-            title={post.title}
+            title={post.title + " — " + post.content.substring(0, 160)}
           >
             {" "}
             <Icons.linkedin className="h-5 w-5" />
@@ -145,7 +145,7 @@ export default async function BlogPost({
           <ShareButton
             network="whatsapp"
             url={`https://mide.codes/blog/${params.slug}?id=${post._id}`}
-            title={post.title}
+            title={post.title + " — " + post.content.substring(0, 160)}
           >
             <Icons.whatsapp className="h-5 w-5 dark:fill-white" />
             <span className="sr-only">Share on WhatsApp</span>
