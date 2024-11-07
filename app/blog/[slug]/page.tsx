@@ -2,8 +2,9 @@ import { Icons } from "@/components/DockActions";
 import MarkdownRenderer from "@/components/MardownRenderer";
 import ShareButton from "@/components/ShareButton";
 import { Card, CardContent } from "@/components/ui/card";
+import { IPost } from "@/interfaces/post.interface";
 import { getMethod } from "@/services/http-requests";
-import { Dot, Facebook, Linkedin, Twitter } from "lucide-react";
+import { Dot } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -30,7 +31,7 @@ export async function generateMetadata({
   params: { slug: string };
   searchParams: { id: string };
 }): Promise<Metadata> {
-  const post = await getBlogPost(searchParams.id);
+  const post: IPost = await getBlogPost(searchParams.id);
 
   if (!post) {
     return {};
@@ -43,11 +44,10 @@ export async function generateMetadata({
       title: post.title,
       description: post.content.substring(0, 160),
       type: "article",
-      publishedTime: post.date,
-      authors: [post.author.name],
+      publishedTime: new Date(post.createdAt).toISOString(),
       images: [
         {
-          url: post.image,
+          url: post.image ? post.image : "/images/placeholder.jpg",
           width: 1200,
           height: 630,
           alt: post.title,
@@ -58,7 +58,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: post.title,
       description: post.content.substring(0, 160),
-      images: [post.image],
+      images: [post.image ? post.image : "/images/placeholder.jpg"],
     },
   };
 }
@@ -71,7 +71,6 @@ export default async function BlogPost({
   searchParams: { id: string };
 }) {
   const { id } = await searchParams;
-  console.log("hello", id);
 
   const post = await getBlogPost(searchParams.id);
   if (!post) {
@@ -82,7 +81,7 @@ export default async function BlogPost({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
-    image: post.image,
+    image: post.image ? post.image : "/images/placeholder.jpg",
     datePublished: post.date,
     author: {
       "@type": "Person",
@@ -153,7 +152,7 @@ export default async function BlogPost({
         </div>
       </div>
       <Image
-        src={post.image}
+        src={post.image ? post.image : "/images/placeholder.jpg"}
         alt={post.title}
         width={1200}
         height={630}
