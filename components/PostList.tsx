@@ -69,7 +69,7 @@ const PostList = () => {
             </CardContent>
             <CardFooter className="pt-0 w-full">
               <div className="flex items-center justify-between">
-                <div className="flex items-center ">
+                <div className="flex items-center">
                   <p className="text-xs text-muted-foreground">
                     {new Date(post.createdAt).toLocaleString("en-us", {
                       year: "numeric",
@@ -86,7 +86,7 @@ const PostList = () => {
                   {(post.tags || [])?.map((tag: string) => (
                     <a
                       key={tag}
-                      className="rounded-2xl border border-zinc-300 px-2 py-0.5 text-xs text-[var(--link-color)] no-underline transition-all duration-700 hover:border-zinc-700"
+                      className="rounded-2xl border border-zinc-300 px-2 py-0.5 md:text-xs text-[10px] text-[var(--link-color)] no-underline transition-all duration-700 hover:border-zinc-700"
                       // href={`/tags/${slugifyStr(tag)}`}
                     >
                       {tag}
