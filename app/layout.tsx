@@ -104,24 +104,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: "Sunday Olomitutu",
-    image:
-      "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
-    datePublished: new Date().toISOString(),
-    author: {
-      "@type": "Person",
-      name: "Sunday Olomitutu",
-    },
-  };
   return (
     <html lang="en">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
       <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
       <body
         className={`${Garet.className} ${Nourd.className} flex flex-col items-center bg-[#F5F7FF] dark:bg-black relative overflow-x-hidden`}
