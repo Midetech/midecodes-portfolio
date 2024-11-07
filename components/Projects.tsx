@@ -11,7 +11,7 @@ const Projects = () => {
         Some of the projects I’ve built so far
       </p>
 
-      <div className="flex lg:gap-[21px] gap-y-[21px] flex-wrap">
+      <div className="flex lg:gap-[21px] justify-center gap-y-[21px] flex-wrap">
         <a target="_blank" href="https://mygift.myserviceagent.net/">
           <div className="lg:w-[538px] lg:h-[538px] bg-[#C3D5E6] rounded-[15px] lg:px-20 px-10 lg:pt-[53px] pt-10 overflow-hidden relative">
             <img src="/images/mygift.png" alt="mygift" />
