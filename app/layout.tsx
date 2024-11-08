@@ -1,8 +1,12 @@
+"use client";
 import { DockDemo } from "@/components/DockActions";
 import Provider from "@/components/Provider";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "@/components/Header";
+import { useState } from "react";
+import Menu from "@/components/Menu";
 
 const Garet = localFont({
   src: [
@@ -48,62 +52,15 @@ const Nourd = localFont({
   variable: "--font-nourd",
 });
 
-export const metadata: Metadata = {
-  title: "Midecodes",
-  description: "Frontend Developer based in Lagos, Nigeria",
-
-  keywords: [
-    "Mobile App Developer",
-    "React Developer",
-    "Frontend Developer",
-    "Next.js Developer",
-    "React Native Developer",
-    "Lagos",
-    "Nigeria",
-    "Africa",
-    "Flutter Developer",
-    "Dart Developer",
-    "Javascript Developer",
-    "Typescript Developer",
-  ],
-  applicationName: "Midecodes",
-
-  openGraph: {
-    type: "website",
-    url: "https://mide.codes",
-    title: "Midecodes",
-    description: "Frontend Developer based in Lagos, Nigeria",
-    images: [
-      {
-        url: "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
-        width: 1200,
-        height: 630,
-        alt: "Midecodes",
-      },
-    ],
-  },
-
-  twitter: {
-    site: "@midecodeable",
-    creator: "@midecodeable",
-    title: "Sunday Olomitutu",
-    description: "Frontend Developer based in Lagos, Nigeria",
-    images: [
-      "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
-    ],
-  },
-
-  authors: {
-    name: "Sunday Olomitutu",
-    url: "https://www.mide.codes",
-  },
-  creator: "Sunday Olomitutu",
-};
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [openMenu, setOpenMenu] = useState(false);
+  const toggleMenu = () => {
+    setOpenMenu(!openMenu);
+  };
   return (
     <html lang="en">
       <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -111,6 +68,8 @@ export default function RootLayout({
         className={`${Garet.className} ${Nourd.className} flex flex-col items-center bg-[#F5F7FF] dark:bg-black relative overflow-x-hidden`}
       >
         <Provider>
+          <Header {...{ toggleMenu }} />
+          <Menu {...{ toggleMenu, openMenu }} />
           <main className="dark:bg-[#000] overflow-y-scroll w-full relative">
             {children}
             {<DockDemo />}

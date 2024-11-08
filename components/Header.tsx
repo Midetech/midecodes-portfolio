@@ -1,7 +1,7 @@
 import Button from "./Button";
 import { ArrowRight, LogoIcon, ToggleIcon } from "./Icons";
 
-const Header = () => {
+const Header = ({ toggleMenu }: { toggleMenu: () => void }) => {
   return (
     <div className="w-full flex justify-center items-center absolute top-5 z-50 lg:px-10 px-5">
       <div className="w-full  flex flex-col gap-y-[27px]">
@@ -21,7 +21,10 @@ const Header = () => {
               Let’s Talk{" "}
               <ArrowRight className="stroke-black dark:stroke-white lg:dark:stroke-black" />
             </Button>
-            <Button className="font-sans flex justify-center items-center gap-6 border-none lg:w-fit h-[41.215px]  w-[51px]">
+            <Button
+              onClick={toggleMenu}
+              className="font-sans flex justify-center items-center gap-6 border-none lg:w-fit h-[41.215px]  w-[51px]"
+            >
               <ToggleIcon className="fill-white dr stroke-black " />
             </Button>
           </div>

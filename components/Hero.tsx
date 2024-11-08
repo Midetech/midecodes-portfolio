@@ -69,10 +69,7 @@ const Hero = () => {
 
         <div className="w-full  flex flex-col-reverse items-end relative ">
           <div className="lg:w-[572px] w-[343px] h-[39.315px] bg-[#C4C4C4]"></div>
-          <ShineBorder
-            className="w-full  flex flex-col-reverse items-end relative "
-            color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-          >
+          <ShineBorder className="" color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}>
             <img
               src="/images/mide-image.png"
               alt="Midecodes"

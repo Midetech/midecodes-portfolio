@@ -370,3 +370,34 @@ export const XIcon = (props: any) => {
     </svg>
   );
 };
+
+export const CloseIcon = (props: any) => {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="65"
+      height="47"
+      viewBox="0 0 65 47"
+      fill="none"
+    >
+      <rect
+        x="0.25"
+        y="0.25"
+        width="64.5"
+        height="46.5"
+        rx="23.25"
+        fill="white"
+        stroke="#4D4D4D"
+        stroke-width="0.5"
+      />
+      <path
+        d="M40 15L24 31M24 15L40 31"
+        stroke="black"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
