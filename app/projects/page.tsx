@@ -1,6 +1,5 @@
-import Header from "@/components/Header";
 import Projects from "@/components/Projects";
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 
 const Page = () => {
   return (

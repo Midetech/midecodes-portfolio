@@ -1,9 +1,19 @@
+import { usePathname } from "next/navigation";
 import Button from "./Button";
 import { ArrowRight, LogoIcon, ToggleIcon } from "./Icons";
+import { cn } from "@/lib/utils";
 
 const Header = ({ toggleMenu }: { toggleMenu: () => void }) => {
+  const pathname = usePathname();
+  console.log(pathname);
+
   return (
-    <div className="w-full flex justify-center items-center absolute top-5 z-50 lg:px-10 px-5">
+    <div
+      className={cn(
+        pathname === "/" ? "" : "dark:bg-black bg-transparent",
+        "w-full flex justify-center items-center absolute md:top-5 z-50 lg:px-10 px-5 pt-5 md:pt-0"
+      )}
+    >
       <div className="w-full  flex flex-col gap-y-[27px]">
         <div className="w-full flex justify-between items-center">
           <div className="flex items-center gap-[8px]">
