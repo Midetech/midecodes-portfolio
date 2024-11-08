@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function BlogList() {
   return (
-    <div className="container mx-auto px-4 py-12 relative md:pt-28 pt-24 pb-24">
+    <div className="container mx-auto px-4 py-12 md:pt-28 pt-24 pb-24">
       <h1 className="text-4xl font-bold mb-8 text-center">Latest Blog Posts</h1>
       <PostList />
     </div>

@@ -10,8 +10,8 @@ const Header = ({ toggleMenu }: { toggleMenu: () => void }) => {
   return (
     <div
       className={cn(
-        pathname === "/" ? "" : "dark:bg-black bg-transparent",
-        "w-full flex justify-center items-center absolute md:top-5 z-50 lg:px-10 px-5 pt-5 md:pt-0"
+        pathname === "/" ? "" : "fixed z-50 dark:bg-black bg-transparent",
+        "w-full flex justify-center items-center  lg:px-10 px-5 pt-5 md:pt-0"
       )}
     >
       <div className="w-full  flex flex-col gap-y-[27px]">

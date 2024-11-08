@@ -9,9 +9,9 @@ import CustomeName from "./Name";
 
 const Hero = () => {
   return (
-    <div className="w-full flex flex-col justify-center items-center lg:pl-10  overflow-hidden relative">
+    <div className="w-full flex flex-col justify-center items-center lg:pl-10  overflow-hidden">
       <Meteors number={30} />
-      <div className="w-full flex flex-col gap-y-10 lg:flex-row items-center relative  lg:mt-0 mt-[109px]">
+      <div className="w-full flex flex-col gap-y-10 lg:flex-row items-center relative  lg:mt-0 mt-[40px] md:[109px]">
         <div className="lg:w-[735px] w-full flex lg:gap-[45px] gap-y-5 flex-col pl-4">
           <div className="lg:w-[536px] w-[306px] h-[62px] rounded-[4px] bg-[#ffd496] flex justify-center items-center">
             <BoxReveal boxColor={"#5046e6"} duration={0.5}>
