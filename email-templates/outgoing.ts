@@ -73,7 +73,7 @@ export const outgoingEmail = (props: OutgoingEmailData) => {
         <p>Best regards,<br>Sunday Olomitutu<br>Software Engineer</p>
         
         <div class="social-links">
-            <a href="mailto:info@mide.codes">📧 Email</a>
+            <a href="mailto:hello@mide.codes">📧 Email</a>
             <a href="https://github.com/midetech">🔗 GitHub</a>
             <a href="https://linkedin.com/in/developermide">💼 LinkedIn</a>
             <a href="https://twitter.com/midecodeable">𝕏 Twitter</a>
