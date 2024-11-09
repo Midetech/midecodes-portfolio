@@ -9,6 +9,9 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
+type Params = Promise<{ slug: string }>;
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
+
 const getBlogPost = async (id: string) => {
   // Simulating an API call
   const post = await getMethod({
@@ -24,13 +27,10 @@ const getBlogPost = async (id: string) => {
   return post;
 };
 
-export async function generateMetadata({
-  searchParams,
-}: {
-  searchParams: { id: string };
-}): Promise<Metadata> {
-  const { id } = await searchParams;
-  const post: IPost = await getBlogPost(id);
+export async function generateMetadata(props: { searchParams: SearchParams }) {
+  const searchParams = await props.searchParams;
+  const id = searchParams.id;
+  const post: IPost = await getBlogPost(id as string);
 
   if (!post) {
     return {};
@@ -69,17 +69,16 @@ export async function generateMetadata({
   };
 }
 
-export default async function BlogPost({
-  params,
-  searchParams,
-}: {
-  params: { slug: string };
-  searchParams: { id: string };
+export default async function BlogPost(props: {
+  params: Params;
+  searchParams: SearchParams;
 }) {
-  const { slug } = await params;
-  const { id } = await searchParams;
+  const params = await props.params;
+  const searchParams = await props.searchParams;
+  const slug = params.slug;
+  const id = searchParams.id;
 
-  const post = await getBlogPost(id);
+  const post = await getBlogPost(id as string);
   if (!post) {
     notFound();
   }
