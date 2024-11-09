@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import { IconCloudDemo } from "@/components/IconCloudDemo";
 import Projects from "@/components/Projects";
 import { Metadata } from "next";
+
 export const metadata: Metadata = {
   title: "Midecodes | Frontend Developer based in Lagos, Nigeria",
   description: "Frontend Developer based in Lagos, Nigeria",

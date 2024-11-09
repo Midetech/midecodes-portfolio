@@ -163,8 +163,8 @@ const ContactForm = () => {
               <path
                 d="M17 7L1 7M17 7L11 13M17 7L11 1"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </Button>

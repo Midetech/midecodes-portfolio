@@ -1,11 +1,14 @@
 "use client";
 import { DockDemo } from "@/components/DockActions";
-import Header from "@/components/Header";
+
 import Menu from "@/components/Menu";
 import Provider from "@/components/Provider";
 import localFont from "next/font/local";
 import { useState } from "react";
 import "./globals.css";
+import dynamic from "next/dynamic";
+
+const Header = dynamic(() => import("@/components/Header"), { ssr: false });
 
 const Garet = localFont({
   src: [
@@ -60,6 +63,7 @@ export default function RootLayout({
   const toggleMenu = () => {
     setOpenMenu(!openMenu);
   };
+
   return (
     <html lang="en">
       <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
