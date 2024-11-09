@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 
 const Header = ({ toggleMenu }: { toggleMenu: () => void }) => {
   const pathname = usePathname();
-  console.log(pathname);
 
   return (
     <div

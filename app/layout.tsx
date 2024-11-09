@@ -71,7 +71,7 @@ export default function RootLayout({
           <Menu {...{ toggleMenu, openMenu }} />
           <main className="dark:bg-[#000] overflow-y-scroll w-full relative">
             {children}
-            {<DockDemo />}
+            <DockDemo />
           </main>
         </Provider>
       </body>

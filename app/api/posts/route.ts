@@ -1,9 +1,5 @@
-import { ICreatePost } from "@/interfaces/post.interface";
 import clientPromise from "@/lib/mongodb";
 import { NextResponse } from 'next/server';
-
-
-
 
 export const GET = async (req: Request) => {
     try {

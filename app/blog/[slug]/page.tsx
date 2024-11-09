@@ -25,13 +25,12 @@ const getBlogPost = async (id: string) => {
 };
 
 export async function generateMetadata({
-  params,
   searchParams,
 }: {
-  params: { slug: string };
   searchParams: { id: string };
 }): Promise<Metadata> {
-  const post: IPost = await getBlogPost(searchParams.id);
+  const { id } = await searchParams;
+  const post: IPost = await getBlogPost(id);
 
   if (!post) {
     return {};
@@ -77,9 +76,10 @@ export default async function BlogPost({
   params: { slug: string };
   searchParams: { id: string };
 }) {
+  const { slug } = await params;
   const { id } = await searchParams;
 
-  const post = await getBlogPost(searchParams.id);
+  const post = await getBlogPost(id);
   if (!post) {
     notFound();
   }
@@ -128,7 +128,7 @@ export default async function BlogPost({
         <div className="flex space-x-4">
           <ShareButton
             network="x"
-            url={`https://www.mide.codes/blog/${params.slug}?id=${post._id}`}
+            url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
             title={post.title + " — " + post.content.substring(0, 160)}
           >
             <Icons.x className="h-5 w-5" />
@@ -136,14 +136,14 @@ export default async function BlogPost({
           </ShareButton>
           <ShareButton
             network="facebook"
-            url={`https://www.mide.codes/blog/${params.slug}?id=${post._id}`}
+            url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
           >
             <Icons.facebook className="h-5 w-5" />
             <span className="sr-only">Share on Facebook</span>
           </ShareButton>
           <ShareButton
             network="linkedin"
-            url={`https://www.mide.codes/blog/${params.slug}?id=${post._id}`}
+            url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
             title={post.title + " — " + post.content.substring(0, 160)}
           >
             {" "}
@@ -152,7 +152,7 @@ export default async function BlogPost({
           </ShareButton>
           <ShareButton
             network="whatsapp"
-            url={`https://www.mide.codes/blog/${params.slug}?id=${post._id}`}
+            url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
             title={post.title + " — " + post.content.substring(0, 160)}
           >
             <Icons.whatsapp className="h-5 w-5 dark:fill-white" />
@@ -170,6 +170,7 @@ export default async function BlogPost({
         width={1200}
         height={630}
         className="rounded-lg mb-6"
+        priority
       />
       <div className="prose max-w-none mb-8">
         <MarkdownRenderer content={post.content} />
@@ -180,7 +181,7 @@ export default async function BlogPost({
           <div className="flex space-x-4">
             <ShareButton
               network="x"
-              url={`https://www.mide.codes/blog/${params.slug}?id=${post._id}`}
+              url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
               title={post.title}
             >
               <Icons.x className="h-5 w-5" />
@@ -188,14 +189,14 @@ export default async function BlogPost({
             </ShareButton>
             <ShareButton
               network="facebook"
-              url={`https://www.mide.codes/blog/${params.slug}?id=${post._id}`}
+              url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
             >
               <Icons.facebook className="h-5 w-5" />
               <span className="sr-only">Share on Facebook</span>
             </ShareButton>
             <ShareButton
               network="linkedin"
-              url={`https://www.mide.codes/blog/${params.slug}?id=${post._id}`}
+              url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
               title={post.title}
             >
               {" "}
@@ -204,7 +205,7 @@ export default async function BlogPost({
             </ShareButton>
             <ShareButton
               network="whatsapp"
-              url={`https://www.mide.codes/blog/${params.slug}?id=${post._id}`}
+              url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
               title={post.title}
             >
               <Icons.whatsapp className="h-5 w-5 dark:fill-white" />

@@ -1,16 +1,18 @@
 import { ObjectId } from 'mongodb';
-
 import clientPromise from "@/lib/mongodb";
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function GET(
+    request: NextRequest,
+    context: { params: { id: string } }
+) {
     try {
         // Connect to MongoDB
         const client = await clientPromise;
         const db = client.db('test-db'); // Replace with your actual database name
 
-        // Extract the ID from the request URL params
-        const { id } = params;
+        // Extract the ID from the context params
+        const { id } = context.params;
 
         // Validate and convert the ID to MongoDB ObjectId
         if (!ObjectId.isValid(id)) {
