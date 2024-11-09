@@ -46,11 +46,9 @@ const ContactForm = () => {
     },
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  // // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     setIsSubmitting(true);
     try {
       setIsSubmitting(true);
@@ -96,46 +94,6 @@ const ContactForm = () => {
       setIsSubmitting(false);
     }
   }
-  // const handleSubmit = async (e: { preventDefault: () => void }) => {
-  //   e.preventDefault();
-  //   try {
-  //     setIsSubmitting(true);
-  //     const response = await fetch("/api/contact-form", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(formData),
-  //     });
-  //     const data = await response.json();
-  //     if (data.success) {
-  //       const sendEmailToClient = await fetch("/api/client-contact-mail", {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(formData),
-  //       });
-  //       const clientData = await sendEmailToClient.json();
-  //       if (clientData.success) {
-  //         setIsSubmitting(false);
-  //         setFormData({
-  //           name: "",
-  //           email: "",
-  //           company: "",
-  //           projectType: "",
-  //           message: "",
-  //         });
-  //       }
-  //     } else {
-  //       alert("Failed to send message");
-  //       setIsSubmitting(false);
-  //     }
-  //   } catch (error) {
-  //     console.error("Failed to send message:", error);
-  //     setIsSubmitting(false);
-  //   }
-  // };
 
   return (
     <div className="md:w-[667px] dark:bg-white bg-black px-8 py-12">
