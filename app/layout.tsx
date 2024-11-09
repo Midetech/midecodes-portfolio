@@ -1,12 +1,11 @@
 "use client";
 import { DockDemo } from "@/components/DockActions";
-import Provider from "@/components/Provider";
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
 import Header from "@/components/Header";
-import { useState } from "react";
 import Menu from "@/components/Menu";
+import Provider from "@/components/Provider";
+import localFont from "next/font/local";
+import { useState } from "react";
+import "./globals.css";
 
 const Garet = localFont({
   src: [
