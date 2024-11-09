@@ -13,6 +13,8 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
+import { useState } from "react";
+import { Icons } from "@/components/Icons";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -43,13 +45,98 @@ const ContactForm = () => {
       subject: "",
     },
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  // // 2. Define a submit handler.
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
+    setIsSubmitting(true);
+    try {
+      setIsSubmitting(true);
+      const response = await fetch("/api/self", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          message: values.message,
+          subject: values.subject,
+        }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        const sendEmailToClient = await fetch("/api/email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: values.name,
+            email: values.email,
+            phone: values.phone,
+            message: values.message,
+            subject: values.subject,
+          }),
+        });
+        const clientData = await sendEmailToClient.json();
+        if (clientData.success) {
+          setIsSubmitting(false);
+          form.reset();
+        }
+      } else {
+        alert("Failed to send message");
+        setIsSubmitting(false);
+      }
+    } catch (error) {
+      console.error("Failed to send message:", error);
+      setIsSubmitting(false);
+    }
   }
+  // const handleSubmit = async (e: { preventDefault: () => void }) => {
+  //   e.preventDefault();
+  //   try {
+  //     setIsSubmitting(true);
+  //     const response = await fetch("/api/contact-form", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(formData),
+  //     });
+  //     const data = await response.json();
+  //     if (data.success) {
+  //       const sendEmailToClient = await fetch("/api/client-contact-mail", {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(formData),
+  //       });
+  //       const clientData = await sendEmailToClient.json();
+  //       if (clientData.success) {
+  //         setIsSubmitting(false);
+  //         setFormData({
+  //           name: "",
+  //           email: "",
+  //           company: "",
+  //           projectType: "",
+  //           message: "",
+  //         });
+  //       }
+  //     } else {
+  //       alert("Failed to send message");
+  //       setIsSubmitting(false);
+  //     }
+  //   } catch (error) {
+  //     console.error("Failed to send message:", error);
+  //     setIsSubmitting(false);
+  //   }
+  // };
+
   return (
     <div className="md:w-[667px] dark:bg-white bg-black px-8 py-12">
       <div className="w-[147px] h-[52px] dark:bg-[#EAEAEA] bg-[#1D1D1D] flex items-center justify-center rounded-[4px] mb-24">
@@ -149,24 +236,29 @@ const ContactForm = () => {
           />
 
           <Button
+            disabled={isSubmitting}
             type="submit"
-            className="w-full bg-white dark:bg-black dark:text-white text-black gap-x-4 h-[62px] rounded-[34px] font-thin"
+            className="w-full bg-white dark:bg-black dark:text-white text-black gap-x-4 h-[62px] rounded-[34px] font-thin disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Send Message
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="14"
-              viewBox="0 0 18 14"
-              fill="none"
-            >
-              <path
-                d="M17 7L1 7M17 7L11 13M17 7L11 1"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            {isSubmitting ? (
+              <Icons.spinner className="animate-spin w-5 h-5" />
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="14"
+                viewBox="0 0 18 14"
+                fill="none"
+              >
+                <path
+                  d="M17 7L1 7M17 7L11 13M17 7L11 1"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            )}
           </Button>
         </form>
       </Form>
