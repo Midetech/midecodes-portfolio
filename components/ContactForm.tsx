@@ -202,7 +202,7 @@ const ContactForm = () => {
           <div
             className="cf-turnstile"
             data-callback="javascriptCallback"
-            data-sitekey={`0x4AAAAAAAzov2Ou3SmomV_c`}
+            data-sitekey={process.env.CLOUDFLARE_KEY}
           ></div>
           <Button
             disabled={isSubmitting}
