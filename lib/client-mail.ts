@@ -21,7 +21,7 @@ export async function sendClientEmail({ email, name, subject, phone }: EmailOpti
         const info = client.sendMail({
             "from":
             {
-                "address": process.env.EMAIL_FROM,
+                "address": process.env.EMAIL_TO,
                 "name": "Midecodes - Sunday Olomitutu"
             },
             "to":

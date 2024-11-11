@@ -15,6 +15,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
 import { Icons } from "@/components/Icons";
+import Script from "next/script";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -193,6 +194,16 @@ const ContactForm = () => {
             )}
           />
 
+          <Script
+            src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+            async
+            defer
+          ></Script>
+          <div
+            className="cf-turnstile"
+            data-callback="javascriptCallback"
+            data-sitekey={`0x4AAAAAAAzov2Ou3SmomV_c`}
+          ></div>
           <Button
             disabled={isSubmitting}
             type="submit"

@@ -67,6 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
       <body
         className={`${Garet.className} ${Nourd.className} flex flex-col items-center bg-[#F5F7FF] dark:bg-black relative overflow-x-hidden`}
       >
