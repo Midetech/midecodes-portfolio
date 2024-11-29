@@ -101,9 +101,9 @@ const Footer = () => {
           </div>
           <div className="flex flex-col">
             <p className="text-black dark:text-white font-sans font-bold text-[16px] pb-2">
-              Connect with me
+              Let&apos;s connect!
             </p>
-            <p>Social Media Platform</p>
+            {/* <p>Social Media Platform</p> */}
             <div className="flex items-center gap-4 mt-2">
               <Link href={"https://github.com/midetech"}>
                 <div className="w-[34px] h-[34px] p-[2px] rounded-full flex justify-center items-center">
