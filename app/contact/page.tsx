@@ -10,7 +10,7 @@ const page = () => {
         <div className="h-full w-full flex md:justify-center items-center md:gap-x-10 md:flex-row flex-col px-8">
           <div className="flex flex-col gap-y-10 md:w-1/3">
             <p className="md:text-[90px] text-5xl font-bold leading-[101%] md:w-[422px] w-full">
-              Let’s get in touch
+              Let&apos;s Work Together!
             </p>
 
             <div>
@@ -20,7 +20,7 @@ const page = () => {
 
             <div className="flex flex-col">
               <p className="text-black dark:text-white font-sans font-bold text-[16px] pb-2">
-                Connect with me
+                Let&apos;s connect!
               </p>
               <div className="flex items-center gap-4 mt-2">
                 <Link href={"https://github.com/midetech"}>
@@ -59,8 +59,9 @@ const page = () => {
               </svg>
 
               <p className="text-xl md:w-[431px]">
-                Great! I am excited to hear from you and let’s start something
-                special together. call me for more inquery.
+                Have a project, question, or opportunity in mind? I&apos;d love
+                to hear from you. Fill out the form below, and I&apos;ll get
+                back to you shortly.
               </p>
             </div>
 
