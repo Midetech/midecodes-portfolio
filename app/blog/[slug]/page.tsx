@@ -1,4 +1,5 @@
 import { Icons } from "@/components/DockActions";
+import Footer from "@/components/Footer";
 import MarkdownRenderer from "@/components/MardownRenderer";
 import ShareButton from "@/components/ShareButton";
 import { Card, CardContent } from "@/components/ui/card";
@@ -104,84 +105,33 @@ export default async function BlogPost(props: {
   };
 
   return (
-    <article className="max-w-2xl mx-auto px-4 py-12 md:pt-28 pt-24">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-      <div className="flex flex-col md:flex-row justify-between mb-6 gap-y-4">
-        <div className="flex items-center gap-x-2">
-          <p className="text-sm text-gray-500">
-            {new Date(post.createdAt).toLocaleString("en-us", {
-              year: "numeric",
-              month: "short",
-              day: "2-digit",
-            })}
-          </p>
-          <Dot size={16} />
-          <p className="text-sm text-gray-500">
-            {calculateReadTime(post.content)} min read
-          </p>
-        </div>
-        <div className="flex space-x-4">
-          <ShareButton
-            network="x"
-            url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
-            title={post.title + " — " + post.content.substring(0, 160)}
-          >
-            <Icons.x className="h-5 w-5" />
-            <span className="sr-only">Share on Twitter</span>
-          </ShareButton>
-          <ShareButton
-            network="facebook"
-            url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
-          >
-            <Icons.facebook className="h-5 w-5" />
-            <span className="sr-only">Share on Facebook</span>
-          </ShareButton>
-          <ShareButton
-            network="linkedin"
-            url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
-            title={post.title + " — " + post.content.substring(0, 160)}
-          >
-            {" "}
-            <Icons.linkedin className="h-5 w-5" />
-            <span className="sr-only">Share on LinkedIn</span>
-          </ShareButton>
-          <ShareButton
-            network="whatsapp"
-            url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
-            title={post.title + " — " + post.content.substring(0, 160)}
-          >
-            <Icons.whatsapp className="h-5 w-5 dark:fill-white" />
-            <span className="sr-only">Share on WhatsApp</span>
-          </ShareButton>
-        </div>
-      </div>
-      <Image
-        src={
-          post.image
-            ? post.image
-            : "https://res.cloudinary.com/mideveloper/image/upload/v1731019367/placeholder_jmujiv.jpg"
-        }
-        alt={post.title}
-        width={1200}
-        height={630}
-        className="rounded-lg mb-6"
-        priority
-      />
-      <div className="prose max-w-none mb-8">
-        <MarkdownRenderer content={post.content} />
-      </div>
-      <Card>
-        <CardContent className="p-4">
-          <h2 className="text-xl font-semibold mb-4">Share this post</h2>
-          <div className="flex space-x-4">
+    <>
+      {" "}
+      <article className="max-w-2xl mx-auto px-4 py-12 md:pt-28 pt-24">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+        <div className="flex flex-col md:flex-row justify-between mb-6 gap-y-4">
+          <div className="flex items-center gap-x-2">
+            <p className="text-sm text-gray-500">
+              {new Date(post.createdAt).toLocaleString("en-us", {
+                year: "numeric",
+                month: "short",
+                day: "2-digit",
+              })}
+            </p>
+            <Dot size={16} />
+            <p className="text-sm text-gray-500">
+              {calculateReadTime(post.content)} min read
+            </p>
+          </div>
+          <div className="flex space-x-3">
             <ShareButton
               network="x"
               url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
-              title={post.title}
+              title={post.title + " — " + post.content.substring(0, 160)}
             >
               <Icons.x className="h-5 w-5" />
               <span className="sr-only">Share on Twitter</span>
@@ -196,23 +146,79 @@ export default async function BlogPost(props: {
             <ShareButton
               network="linkedin"
               url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
-              title={post.title}
+              title={post.title + " — " + post.content.substring(0, 160)}
             >
-              {" "}
               <Icons.linkedin className="h-5 w-5" />
               <span className="sr-only">Share on LinkedIn</span>
             </ShareButton>
             <ShareButton
               network="whatsapp"
               url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
-              title={post.title}
+              title={post.title + " — " + post.content.substring(0, 160)}
             >
               <Icons.whatsapp className="h-5 w-5 dark:fill-white" />
               <span className="sr-only">Share on WhatsApp</span>
             </ShareButton>
           </div>
-        </CardContent>
-      </Card>
-    </article>
+        </div>
+        <Image
+          src={
+            post.image
+              ? post.image
+              : "https://res.cloudinary.com/mideveloper/image/upload/v1731019367/placeholder_jmujiv.jpg"
+          }
+          alt={post.title}
+          width={1200}
+          height={630}
+          className="rounded-lg mb-6"
+          priority
+        />
+        <div className="prose max-w-none mb-8">
+          <MarkdownRenderer content={post.content} />
+        </div>
+        <Card className="mb-12">
+          <CardContent className="p-4">
+            <h2 className="text-xl font-semibold mb-4">Share this post</h2>
+            <div className="flex space-x-4">
+              <ShareButton
+                network="x"
+                url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
+                title={post.title}
+              >
+                <Icons.x className="h-5 w-5" />
+                <span className="sr-only">Share on Twitter</span>
+              </ShareButton>
+              <ShareButton
+                network="facebook"
+                url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
+              >
+                <Icons.facebook className="h-5 w-5" />
+                <span className="sr-only">Share on Facebook</span>
+              </ShareButton>
+              <ShareButton
+                network="linkedin"
+                url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
+                title={post.title}
+              >
+                {" "}
+                <Icons.linkedin className="h-5 w-5" />
+                <span className="sr-only">Share on LinkedIn</span>
+              </ShareButton>
+              <ShareButton
+                network="whatsapp"
+                url={`https://www.mide.codes/blog/${slug}?id=${post._id}`}
+                title={post.title}
+              >
+                <Icons.whatsapp className="h-5 w-5 dark:fill-white" />
+                <span className="sr-only">Share on WhatsApp</span>
+              </ShareButton>
+            </div>
+          </CardContent>
+        </Card>
+      </article>
+      <div className="mt-12">
+        <Footer />
+      </div>
+    </>
   );
 }
