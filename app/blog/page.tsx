@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import PostList from "@/components/PostList";
 import { Metadata } from "next";
 
@@ -30,9 +31,16 @@ export const metadata: Metadata = {
 
 export default function BlogList() {
   return (
-    <div className="container mx-auto px-4 py-12 md:pt-28 pt-24 pb-24">
-      <h1 className="text-4xl font-bold mb-8 text-center">Latest Blog Posts</h1>
-      <PostList />
-    </div>
+    <>
+      <div className="container mx-auto px-4 py-12 md:pt-28 pt-24 pb-24">
+        <h1 className="text-4xl font-bold mb-8 text-center">
+          Latest Blog Posts
+        </h1>
+        <PostList />
+      </div>
+      <div className="mt-24">
+        <Footer />
+      </div>
+    </>
   );
 }

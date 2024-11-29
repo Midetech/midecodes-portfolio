@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import Button from "./Button";
 import { BorderBeam } from "@/components/magicui/border-beam";
+import ShimmerButton from "./ui/shimmer-button";
 
 const Footer = () => {
   return (
@@ -32,7 +33,7 @@ const Footer = () => {
               Call me <ArrowRight className="stroke-black dark:stroke-white " />
             </Button>
           </Link>
-          <Link href="mailto:hello@mide.codes">
+          <Link href="/contact">
             <Button className="font-sans flex justify-center items-center gap-x-3 lg:gap-6 w-[137px] h-[41px] !bg-black !text-white dark:border-white dark:text-black">
               Email me <ArrowRight className="stroke-white " />
             </Button>

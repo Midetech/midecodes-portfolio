@@ -7,6 +7,8 @@ import Button from "./Button";
 import { ArrowRight, GitHub, LinkedIn, Twitter } from "./Icons";
 import CustomeName from "./Name";
 import { Icons } from "./DockActions";
+import ShinyButton from "./ui/shiny-button";
+import { RainbowButton } from "./ui/rainbow-button";
 
 const Hero = () => {
   return (
@@ -40,10 +42,10 @@ const Hero = () => {
           <BoxReveal boxColor={"#5046e6"} duration={0.5}>
             <div className="flex lg:items-center gap-4 flex-col lg:flex-row">
               <Link href={"#projects"}>
-                <Button className="flex justify-center items-center gap-4 w-[166px] h-[47px]">
-                  View Projects{" "}
-                  <ArrowRight className="stroke-black dark:stroke-white" />
-                </Button>
+                <RainbowButton className="flex justify-center items-center gap-4  h-[47px]">
+                  View Projects
+                  <ArrowRight className="stroke-white dark:stroke-black" />
+                </RainbowButton>
               </Link>
               <div className="w-[64px] h-[2px] bg-[#6E6E6E] dark:bg-white"></div>
 
