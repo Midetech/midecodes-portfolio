@@ -6,6 +6,7 @@ import Link from "next/link";
 import Button from "./Button";
 import { ArrowRight, GitHub, LinkedIn, Twitter } from "./Icons";
 import CustomeName from "./Name";
+import { Icons } from "./DockActions";
 
 const Hero = () => {
   return (
@@ -59,7 +60,7 @@ const Hero = () => {
                 </Link>
                 <Link href={"https://twitter.com/midecodeable"}>
                   <div className="w-[62px] h-[62px] rounded-full bg-white dark:bg-[#222] flex justify-center items-center">
-                    <Twitter />
+                    <Icons.x className="w-8  h-8" />
                   </div>
                 </Link>
               </div>
