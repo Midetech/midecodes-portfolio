@@ -53,7 +53,7 @@ const ContactForm = () => {
     setIsSubmitting(true);
     try {
       setIsSubmitting(true);
-      const response = await fetch("/self", {
+      const response = await fetch("https://mide.codes/api/self", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -68,7 +68,7 @@ const ContactForm = () => {
       });
       const data = await response.json();
       if (data.success) {
-        const sendEmailToClient = await fetch("/email", {
+        const sendEmailToClient = await fetch("https://mide.codes/api/email", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
