@@ -53,7 +53,7 @@ const ContactForm = () => {
     setIsSubmitting(true);
     try {
       setIsSubmitting(true);
-      const response = await fetch("/api/self", {
+      const response = await fetch("/self", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -68,7 +68,7 @@ const ContactForm = () => {
       });
       const data = await response.json();
       if (data.success) {
-        const sendEmailToClient = await fetch("/api/email", {
+        const sendEmailToClient = await fetch("/email", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
