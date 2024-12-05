@@ -11,7 +11,7 @@ import { slugify } from "@/lib/slugify";
 const PostList = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-
+  console.log(location.origin);
   useEffect(() => {
     const getPosts = async () => {
       setLoading(true);

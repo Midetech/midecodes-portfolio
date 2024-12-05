@@ -9,17 +9,24 @@ import { Dot } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { headers } from "next/headers";
 
 type Params = Promise<{ slug: string }>;
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
 const getBlogPost = async (id: string) => {
+  const headersList = headers();
+  const hostname = `${
+    process.env.NODE_ENV === "production" ? "https://" : "http://"
+  }${(await headersList).get("host")}`;
+
+  console.log(hostname);
   // Simulating an API call
   const post = await getMethod({
     queryKey: [
       "posts",
       {
-        route: `/api/posts/${id}`,
+        route: `${hostname}/api/posts/${id}`,
         params: {},
       },
     ],

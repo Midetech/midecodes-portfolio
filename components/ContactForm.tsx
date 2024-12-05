@@ -53,78 +53,78 @@ const ContactForm = () => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     try {
-      setIsSubmitting(true);
-      await postMethod({
-        route: "/api/self",
-        payload: JSON.stringify({
-          name: values.name,
-          email: values.email,
-          phone: values.phone,
-          message: values.message,
-          subject: values.subject,
-        }),
-      }).then((res) => {
-        if (res.success) {
-          postMethod({
-            route: "/api/email",
-            payload: JSON.stringify({
-              name: values.name,
-              email: values.email,
-              phone: values.phone,
-              message: values.message,
-              subject: values.subject,
-            }),
-          }).then((res) => {
-            if (res.success) {
-              setIsSubmitting(false);
-              form.reset();
-            } else {
-              alert("Failed to send message");
-              setIsSubmitting(false);
-            }
-          });
-        } else {
-          alert("Failed to send message");
-          setIsSubmitting(false);
-        }
-      });
-      // const response = await fetch("https://mide.codes/api/self", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
+      // setIsSubmitting(true);
+      // await postMethod({
+      //   route: "/api/self",
+      //   payload: JSON.stringify({
       //     name: values.name,
       //     email: values.email,
       //     phone: values.phone,
       //     message: values.message,
       //     subject: values.subject,
       //   }),
-      // });
-      // const data = await response.json();
-      // if (data.success) {
-      //   const sendEmailToClient = await fetch("https://mide.codes/api/email", {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify({
-      //       name: values.name,
-      //       email: values.email,
-      //       phone: values.phone,
-      //       message: values.message,
-      //       subject: values.subject,
-      //     }),
-      //   });
-      //   const clientData = await sendEmailToClient.json();
-      //   if (clientData.success) {
+      // }).then((res) => {
+      //   if (res.success) {
+      //     postMethod({
+      //       route: "/api/email",
+      //       payload: JSON.stringify({
+      //         name: values.name,
+      //         email: values.email,
+      //         phone: values.phone,
+      //         message: values.message,
+      //         subject: values.subject,
+      //       }),
+      //     }).then((res) => {
+      //       if (res.success) {
+      //         setIsSubmitting(false);
+      //         form.reset();
+      //       } else {
+      //         alert("Failed to send message");
+      //         setIsSubmitting(false);
+      //       }
+      //     });
+      //   } else {
+      //     alert("Failed to send message");
       //     setIsSubmitting(false);
-      //     form.reset();
       //   }
-      // } else {
-      //   alert("Failed to send message");
-      //   setIsSubmitting(false);
-      // }
+      // });
+      const response = await fetch("/api/self", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          message: values.message,
+          subject: values.subject,
+        }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        const sendEmailToClient = await fetch("/api/email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: values.name,
+            email: values.email,
+            phone: values.phone,
+            message: values.message,
+            subject: values.subject,
+          }),
+        });
+        const clientData = await sendEmailToClient.json();
+        if (clientData.success) {
+          setIsSubmitting(false);
+          form.reset();
+        }
+      } else {
+        alert("Failed to send message");
+        setIsSubmitting(false);
+      }
     } catch (error) {
       console.error("Failed to send message:", error);
       setIsSubmitting(false);
