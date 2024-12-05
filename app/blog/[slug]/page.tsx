@@ -15,16 +15,12 @@ type Params = Promise<{ slug: string }>;
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
 const getBlogPost = async (id: string) => {
-  const headersList = headers();
-  const hostname = `${
-    process.env.NODE_ENV === "production" ? "https://" : "http://"
-  }${(await headersList).get("host")}`;
   // Simulating an API call
   const post = await getMethod({
     queryKey: [
       "posts",
       {
-        route: `${hostname}/api/posts/${id}`,
+        route: `https://mide.codes/api/posts/${id}`,
         params: {},
       },
     ],
