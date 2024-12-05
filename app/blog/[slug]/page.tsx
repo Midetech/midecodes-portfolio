@@ -19,8 +19,6 @@ const getBlogPost = async (id: string) => {
   const hostname = `${
     process.env.NODE_ENV === "production" ? "https://" : "http://"
   }${(await headersList).get("host")}`;
-
-  console.log(hostname);
   // Simulating an API call
   const post = await getMethod({
     queryKey: [
