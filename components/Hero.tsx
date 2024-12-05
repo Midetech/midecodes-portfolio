@@ -3,17 +3,17 @@ import BoxReveal from "@/components/magicui/box-reveal";
 import Meteors from "@/components/magicui/meteors";
 import ShineBorder from "@/components/magicui/shine-border";
 import Link from "next/link";
-import Button from "./Button";
-import { ArrowRight, GitHub, LinkedIn, Twitter } from "./Icons";
-import CustomeName from "./Name";
 import { Icons } from "./DockActions";
-import ShinyButton from "./ui/shiny-button";
+import { ArrowRight, GitHub, LinkedIn } from "./Icons";
+import CustomeName from "./Name";
 import { RainbowButton } from "./ui/rainbow-button";
 
 const Hero = () => {
   return (
     <div className="w-full flex flex-col justify-center items-center lg:pl-10  overflow-hidden">
-      <Meteors number={30} />
+      <div className="hidden md:block">
+        <Meteors number={30} />
+      </div>
       <div className="w-full flex flex-col gap-y-10 lg:flex-row items-center relative  lg:mt-0 mt-[40px] md:[109px]">
         <div className="lg:w-[735px] w-full flex lg:gap-[45px] gap-y-5 flex-col pl-4">
           <div className="lg:w-[536px] w-[306px] h-[62px] rounded-[4px] bg-[#ffd496] flex justify-center items-center">

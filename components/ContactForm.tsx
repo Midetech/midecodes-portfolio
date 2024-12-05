@@ -16,6 +16,7 @@ import { Textarea } from "./ui/textarea";
 import { useState } from "react";
 import { Icons } from "@/components/Icons";
 import Script from "next/script";
+import { postMethod } from "@/services/http-requests";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -53,43 +54,77 @@ const ContactForm = () => {
     setIsSubmitting(true);
     try {
       setIsSubmitting(true);
-      const response = await fetch("https://mide.codes/api/self", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      await postMethod({
+        route: "/self",
+        payload: JSON.stringify({
           name: values.name,
           email: values.email,
           phone: values.phone,
           message: values.message,
           subject: values.subject,
         }),
-      });
-      const data = await response.json();
-      if (data.success) {
-        const sendEmailToClient = await fetch("https://mide.codes/api/email", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: values.name,
-            email: values.email,
-            phone: values.phone,
-            message: values.message,
-            subject: values.subject,
-          }),
-        });
-        const clientData = await sendEmailToClient.json();
-        if (clientData.success) {
+      }).then((res) => {
+        if (res.success) {
+          postMethod({
+            route: "/email",
+            payload: JSON.stringify({
+              name: values.name,
+              email: values.email,
+              phone: values.phone,
+              message: values.message,
+              subject: values.subject,
+            }),
+          }).then((res) => {
+            if (res.success) {
+              setIsSubmitting(false);
+              form.reset();
+            } else {
+              alert("Failed to send message");
+              setIsSubmitting(false);
+            }
+          });
+        } else {
+          alert("Failed to send message");
           setIsSubmitting(false);
-          form.reset();
         }
-      } else {
-        alert("Failed to send message");
-        setIsSubmitting(false);
-      }
+      });
+      // const response = await fetch("https://mide.codes/api/self", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     name: values.name,
+      //     email: values.email,
+      //     phone: values.phone,
+      //     message: values.message,
+      //     subject: values.subject,
+      //   }),
+      // });
+      // const data = await response.json();
+      // if (data.success) {
+      //   const sendEmailToClient = await fetch("https://mide.codes/api/email", {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({
+      //       name: values.name,
+      //       email: values.email,
+      //       phone: values.phone,
+      //       message: values.message,
+      //       subject: values.subject,
+      //     }),
+      //   });
+      //   const clientData = await sendEmailToClient.json();
+      //   if (clientData.success) {
+      //     setIsSubmitting(false);
+      //     form.reset();
+      //   }
+      // } else {
+      //   alert("Failed to send message");
+      //   setIsSubmitting(false);
+      // }
     } catch (error) {
       console.error("Failed to send message:", error);
       setIsSubmitting(false);
