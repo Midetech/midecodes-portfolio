@@ -55,7 +55,7 @@ const ContactForm = () => {
     try {
       setIsSubmitting(true);
       await postMethod({
-        route: "/self",
+        route: "/api/self",
         payload: JSON.stringify({
           name: values.name,
           email: values.email,
@@ -66,7 +66,7 @@ const ContactForm = () => {
       }).then((res) => {
         if (res.success) {
           postMethod({
-            route: "/email",
+            route: "/api/email",
             payload: JSON.stringify({
               name: values.name,
               email: values.email,

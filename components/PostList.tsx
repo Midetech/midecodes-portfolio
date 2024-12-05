@@ -19,7 +19,7 @@ const PostList = () => {
         queryKey: [
           "posts",
           {
-            route: "/posts",
+            route: "/api/posts",
             params: {},
           },
         ],

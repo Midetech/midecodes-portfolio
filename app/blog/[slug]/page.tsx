@@ -19,7 +19,7 @@ const getBlogPost = async (id: string) => {
     queryKey: [
       "posts",
       {
-        route: `/posts/${id}`,
+        route: `/api/posts/${id}`,
         params: {},
       },
     ],
