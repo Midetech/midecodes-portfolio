@@ -127,8 +127,6 @@ export default function CommunityMetrics({
     backends: number;
   };
 }) {
-  console.log(metrics, "metrics");
-
   const communityMetrics = [
     {
       icon: Code,

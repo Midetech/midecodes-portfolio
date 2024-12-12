@@ -125,7 +125,7 @@ export default function TechMentorshipLanding() {
         {/* Hero Section */}
         <section className="container mx-auto px-4 py-16 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 dark:text-white">
-            Let's Learn Together!
+            Let&apos;s Learn Together!
           </h1>
           <p className="text-xl max-w-2xl mx-auto mb-8 dark:text-gray-300">
             Connect with experienced mentors across tech domains. Learn, grow,
