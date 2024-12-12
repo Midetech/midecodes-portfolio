@@ -31,6 +31,11 @@ const Menu = ({
       name: "Contact",
       url: "/contact",
     },
+    {
+      id: 5,
+      name: "Mentorship",
+      url: "/mentorship",
+    },
   ];
 
   if (!openMenu) return null;

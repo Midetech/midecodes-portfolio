@@ -1,125 +1,183 @@
+"use client";
 import { ArrowRight } from "lucide-react";
 import React from "react";
 import { RainbowButton } from "./ui/rainbow-button";
 
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "./ui/form";
+import { Input } from "./ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
+import { Textarea } from "./ui/textarea";
+import { Icons } from "./Icons";
+
 const MentorshipForm = ({
-  handleSubmit,
-  handleInputChange,
-  formData,
+  form,
+  onSubmit,
+  loading,
 }: {
-  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
-  handleInputChange: (
-    event: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => void;
-  formData: {
-    name: string;
-    email: string;
-    phone: string;
-    role: string;
-    interest: string;
-  };
+  loading: boolean;
+  form: any; // Replace 'any' with the specific type if known
+  onSubmit: (data: any) => void; // Replace 'any' with the specific type if known
 }) => {
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md"
-    >
-      <div className="grid md:grid-cols-2 gap-4 mb-4">
-        <div>
-          <label htmlFor="name" className="block mb-2 dark:text-white">
-            Full Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            required
-            className="w-full p-2 border rounded dark:bg-gray-700 dark:text-white dark:border-gray-600"
-            placeholder="John Doe"
-          />
-        </div>
-        <div>
-          <label htmlFor="email" className="block mb-2 dark:text-white">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            required
-            className="w-full p-2 border rounded dark:bg-gray-700 dark:text-white dark:border-gray-600"
-            placeholder="john@example.com"
-          />
-        </div>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-4 mb-4">
-        <div>
-          <label htmlFor="email" className="block mb-2 dark:text-white">
-            Phone
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleInputChange}
-            required
-            className="w-full p-2 border rounded dark:bg-gray-700 dark:text-white dark:border-gray-600"
-            placeholder="070 311 234 1779"
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="role" className="block mb-2 dark:text-white">
-            Current Role
-          </label>
-          <select
-            id="role"
-            name="role"
-            value={formData.role}
-            onChange={handleInputChange}
-            required
-            className="w-full p-2 border rounded dark:bg-gray-700 dark:text-white dark:border-gray-600"
-          >
-            <option value="">Select Your Role</option>
-            <option value="frontend">Frontend Developer</option>
-            <option value="backend">Backend Developer</option>
-            <option value="tester">Software Tester</option>
-            <option value="pm">Product Manager</option>
-          </select>
-        </div>
-      </div>
-      <div className="mb-4">
-        <label htmlFor="interest" className="block mb-2 dark:text-white">
-          Mentorship Interests
-        </label>
-        <textarea
-          id="interest"
-          name="interest"
-          value={formData.interest}
-          onChange={handleInputChange}
-          rows={4}
-          className="w-full p-2 border rounded dark:bg-gray-700 dark:text-white dark:border-gray-600"
-          placeholder="Tell us about your mentorship goals..."
-        ></textarea>
-      </div>
-
-      <RainbowButton className="flex justify-center items-center gap-4  h-[47px]">
-        <button
-          type="submit"
-          className="w-full  transition flex items-center justify-center"
+    <>
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md"
         >
-          Submit Application
-          <ArrowRight className="ml-2 w-5 h-5" />
-        </button>
-      </RainbowButton>
-    </form>
+          <div className="grid md:grid-cols-2 gap-4 mb-4">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem className="w-full p-2">
+                  <FormLabel className="text-black dark:text-white">
+                    Name
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      className="border dark:border-white h-[40px] rounded focus:border-blue-500 text-black dark:text-white "
+                    />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem className="w-full p-2">
+                  <FormLabel className="text-black dark:text-white">
+                    Email
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      className="border dark:border-white h-[40px] rounded focus:border-blue-500 text-black dark:text-white "
+                      type="email"
+                    />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4 mb-4">
+            <FormField
+              control={form.control}
+              name="phone"
+              render={({ field }) => (
+                <FormItem className="w-full p-2">
+                  <FormLabel className="text-black dark:text-white">
+                    Phone
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      className="border dark:border-white h-[40px] rounded focus:border-blue-500 text-black dark:text-white "
+                      type="tel"
+                    />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="role"
+              render={({ field }) => (
+                <FormItem className="flex-1">
+                  <FormLabel>Current Role</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue
+                          defaultValue={field.value}
+                          placeholder="Select an option"
+                        />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectGroup>
+                        {[
+                          "Frontend Developer",
+                          "Backend Developer",
+                          "Product Manager",
+                          "Software Tester",
+                        ].map((item, index) => (
+                          <SelectItem value={item} key={index}>
+                            {item}
+                          </SelectItem>
+                        ))}
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <FormField
+            name="interest"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-black dark:text-white">
+                  Tell me what you are interested in
+                </FormLabel>
+                <FormControl>
+                  <Textarea
+                    rows={4}
+                    {...field}
+                    className="border text-black dark:text-white dark:border-white rounded focus:border-blue-500"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <RainbowButton
+            disabled={loading}
+            type="submit"
+            className="flex justify-center items-center gap-4  h-[47px] mt-5"
+          >
+            Submit Application
+            {loading ? (
+              <Icons.spinner className="animate-spin w-5 h-5" />
+            ) : (
+              <ArrowRight className="ml-2 w-5 h-5" />
+            )}
+          </RainbowButton>
+        </form>
+      </Form>
+    </>
   );
 };
 

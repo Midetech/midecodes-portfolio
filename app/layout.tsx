@@ -7,6 +7,7 @@ import localFont from "next/font/local";
 import { useState } from "react";
 import "./globals.css";
 import dynamic from "next/dynamic";
+import { Toaster } from "@/components/ui/toaster";
 
 const Header = dynamic(() => import("@/components/Header"), { ssr: false });
 
@@ -79,6 +80,7 @@ export default function RootLayout({
             <DockDemo />
           </main>
         </Provider>
+        <Toaster />
       </body>
     </html>
   );

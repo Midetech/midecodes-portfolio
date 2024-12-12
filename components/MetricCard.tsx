@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Code, Bug, Briefcase, Users } from "lucide-react";
 import CountUp from "react-countup";
+import { BorderBeam } from "./magicui/border-beam";
 
 const MetricCard = ({
   icon: Icon,
@@ -25,13 +26,14 @@ const MetricCard = ({
       { threshold: 0.1 }
     );
 
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
+    const currentRef = cardRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -91,7 +93,13 @@ const MetricCard = ({
           dark:from-blue-400 dark:to-purple-400"
         >
           {isVisible ? (
-            <CountUp end={count} duration={2} separator="," suffix="+" />
+            <CountUp
+              end={count}
+              duration={2}
+              separator=","
+              suffix="+"
+              // suffix={count > 9 ? "+" : ""}
+            />
           ) : (
             "0+"
           )}
@@ -104,30 +112,42 @@ const MetricCard = ({
           {title}
         </p>
       </div>
+      <BorderBeam size={350} duration={15} delay={9} />
     </div>
   );
 };
 
-export default function CommunityMetrics() {
+export default function CommunityMetrics({
+  metrics,
+}: {
+  metrics: {
+    products: number;
+    testers: number;
+    frontends: number;
+    backends: number;
+  };
+}) {
+  console.log(metrics, "metrics");
+
   const communityMetrics = [
     {
       icon: Code,
-      count: 1250,
+      count: metrics.frontends,
       title: "Frontend Developers",
     },
     {
       icon: Code,
-      count: 980,
+      count: metrics.backends,
       title: "Backend Developers",
     },
     {
       icon: Bug,
-      count: 450,
+      count: metrics.testers,
       title: "Software Testers",
     },
     {
       icon: Briefcase,
-      count: 350,
+      count: metrics.products,
       title: "Product Managers",
     },
   ];
@@ -135,8 +155,8 @@ export default function CommunityMetrics() {
   return (
     <section
       className="container mx-auto px-4 py-16 
-      bg-gradient-to-br from-gray-50 via-white to-gray-100 
-      dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
+      bg-transparent 
+      dark:bg-black"
     >
       <h2
         className="text-4xl font-bold text-center mb-16 
@@ -144,7 +164,7 @@ export default function CommunityMetrics() {
         bg-gradient-to-r from-blue-600 to-purple-600 
         dark:from-blue-400 dark:to-purple-400"
       >
-        Our Growing Community
+        Our Friends
       </h2>
 
       <div className="grid md:grid-cols-4 gap-8">

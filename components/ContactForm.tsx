@@ -17,6 +17,7 @@ import { useState } from "react";
 import { Icons } from "@/components/Icons";
 import Script from "next/script";
 import { postMethod } from "@/services/http-requests";
+import { toast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -120,13 +121,28 @@ const ContactForm = () => {
         if (clientData.success) {
           setIsSubmitting(false);
           form.reset();
+          toast({
+            title: "✅ Message Sent Successfully",
+            description:
+              "Thank you for reaching out to us! 🙌 We’ve received your message and will get back to you shortly.",
+          });
         }
       } else {
-        alert("Failed to send message");
+        toast({
+          title: "🚫 Message Not Sent",
+          description:
+            "Oops! Something went wrong while sending your message. Please try again later.",
+          variant: "destructive",
+        });
         setIsSubmitting(false);
       }
     } catch (error) {
-      console.error("Failed to send message:", error);
+      toast({
+        title: "🚫 Message Not Sent",
+        description:
+          "Oops! Something went wrong while sending your message. Please try again later.",
+        variant: "destructive",
+      });
       setIsSubmitting(false);
     }
   }

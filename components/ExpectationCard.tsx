@@ -74,8 +74,7 @@ export default function WhatWeExpect() {
   return (
     <section
       className="container mx-auto px-4 py-16 
-      bg-gradient-to-br from-gray-50 via-white to-gray-100 
-      dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
+      bg-transparent dark:bg-black"
     >
       <h2
         className="text-4xl font-bold text-center mb-16 
