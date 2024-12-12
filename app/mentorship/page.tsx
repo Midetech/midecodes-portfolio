@@ -1,119 +1,62 @@
-"use client";
 import Button from "@/components/Button";
 import WhatWeExpect from "@/components/ExpectationCard";
 import Footer from "@/components/Footer";
 import MentorshipForm from "@/components/MentorshipForm";
 import CommunityMetrics from "@/components/MetricCard";
-import { toast } from "@/hooks/use-toast";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { Metadata } from "next";
 import Image from "next/image";
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+export const metadata: Metadata = {
+  title: "Mentorship with Midecodes",
+  description: "Frontend Developer based in Lagos, Nigeria",
 
-const formSchema = z.object({
-  name: z.string().min(5, {
-    message: "Name is required",
-  }),
-  email: z.string().email({
-    message: "Please enter a valid email.",
-  }),
-  phone: z.string().min(11, {
-    message: "Phone must be at least 11 characters.",
-  }),
-  interest: z.string().min(10, {
-    message: "interest must be at least 10 characters.",
-  }),
-  role: z.string().min(5, {
-    message: "Please select role that applies",
-  }),
-});
+  keywords: [
+    "Mobile App Developer",
+    "React Developer",
+    "Frontend Developer",
+    "Next.js Developer",
+    "React Native Developer",
+    "Lagos",
+    "Nigeria",
+    "Africa",
+    "Flutter Developer",
+    "Dart Developer",
+    "Javascript Developer",
+    "Typescript Developer",
+  ],
+  applicationName: "Midecodes",
+
+  openGraph: {
+    type: "website",
+    url: "https://mide.codes",
+    title: "Midecodes",
+    description: "Frontend Developer based in Lagos, Nigeria",
+    images: [
+      {
+        url: "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
+        width: 1200,
+        height: 630,
+        alt: "Midecodes",
+      },
+    ],
+  },
+
+  twitter: {
+    site: "@midecodeable",
+    creator: "@midecodeable",
+    title: "Sunday Olomitutu",
+    description: "Frontend Developer based in Lagos, Nigeria",
+    images: [
+      "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
+    ],
+  },
+
+  authors: {
+    name: "Sunday Olomitutu",
+    url: "https://www.mide.codes",
+  },
+  creator: "Sunday Olomitutu",
+};
 export default function TechMentorshipLanding() {
-  const [loading, setLoading] = useState(false);
-  const [refetch, setRefetch] = useState(false);
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      interest: "",
-      role: "",
-    },
-  });
-
-  const [metrics, setMetrics] = useState({
-    frontends: 10,
-    backends: 5,
-    testers: 4,
-    products: 8,
-  });
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    setLoading(true);
-
-    try {
-      const res = await fetch("/api/mentor", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...values,
-        }),
-      });
-      const data = await res.json();
-
-      if (data.status) {
-        setLoading(false);
-        setRefetch(true);
-        form.reset();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        toast({
-          title: "✅ Registration Successful",
-          description: data.message,
-        });
-      } else {
-        setLoading(false);
-        toast({
-          title: "🚫 Registration Already Completed",
-          description: data.message,
-          variant: "destructive",
-        });
-      }
-    } catch (error: unknown) {
-      setLoading(false);
-      toast({
-        title: "🚫 Registration Already Completed",
-        description:
-          JSON.stringify(error) || "Something went wrong, we are fixing it!",
-        variant: "destructive",
-      });
-    }
-  }
-  const getVisitors = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch("/api/mentor", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      const data = await response.json();
-      setMetrics(data.data);
-      console.log(data);
-
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
-  };
-  // React.useEffect(() => {
-  //   getVisitors();
-  // }, [refetch]);
-
   return (
     <>
       <div
@@ -139,7 +82,7 @@ export default function TechMentorshipLanding() {
         </section>
 
         {/* Community Metrics */}
-        <CommunityMetrics {...{ metrics }} />
+        <CommunityMetrics />
 
         {/* What We Expect */}
         <WhatWeExpect />
@@ -161,7 +104,7 @@ export default function TechMentorshipLanding() {
             </div>
 
             {/* Form Column */}
-            <MentorshipForm {...{ form, onSubmit, loading }} />
+            <MentorshipForm />
           </div>
         </section>
         <div className="mt-36">

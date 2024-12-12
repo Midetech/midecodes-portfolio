@@ -1,6 +1,6 @@
 "use client";
 import { ArrowRight } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import { RainbowButton } from "./ui/rainbow-button";
 
 import {
@@ -22,16 +22,87 @@ import {
 } from "./ui/select";
 import { Textarea } from "./ui/textarea";
 import { Icons } from "./Icons";
+import { toast } from "@/hooks/use-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
-const MentorshipForm = ({
-  form,
-  onSubmit,
-  loading,
-}: {
-  loading: boolean;
-  form: any; // Replace 'any' with the specific type if known
-  onSubmit: (data: any) => void; // Replace 'any' with the specific type if known
-}) => {
+const formSchema = z.object({
+  name: z.string().min(5, {
+    message: "Name is required",
+  }),
+  email: z.string().email({
+    message: "Please enter a valid email.",
+  }),
+  phone: z.string().min(11, {
+    message: "Phone must be at least 11 characters.",
+  }),
+  interest: z.string().min(10, {
+    message: "interest must be at least 10 characters.",
+  }),
+  role: z.string().min(5, {
+    message: "Please select role that applies",
+  }),
+});
+
+const MentorshipForm = () => {
+  const [loading, setLoading] = useState(false);
+  const [refetch, setRefetch] = useState(false);
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      interest: "",
+      role: "",
+    },
+  });
+
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/mentor", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...values,
+        }),
+      });
+      const data = await res.json();
+
+      if (data.status) {
+        setLoading(false);
+        setRefetch(true);
+        form.reset();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        toast({
+          title: "✅ Registration Successful",
+          description: data.message,
+        });
+      } else {
+        setLoading(false);
+        toast({
+          title: "🚫 Registration Already Completed",
+          description: data.message,
+          variant: "destructive",
+        });
+      }
+    } catch (error: unknown) {
+      setLoading(false);
+      toast({
+        title: "🚫 Registration Already Completed",
+        description:
+          JSON.stringify(error) || "Something went wrong, we are fixing it!",
+        variant: "destructive",
+      });
+    }
+  }
+
   return (
     <>
       <Form {...form}>

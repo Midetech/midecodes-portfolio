@@ -1,8 +1,34 @@
 import ContactForm from "@/components/ContactForm";
 import { GitHub, LinkedIn, XIcon } from "@/components/Icons";
+import { Metadata } from "next";
 import Link from "next/link";
 import React, { Suspense } from "react";
-
+export const metadata: Metadata = {
+  title: "Contact me | Midecodes",
+  description: "React out, let's work together",
+  openGraph: {
+    title: "Contact me | Midecodes",
+    description: "React out, let's work together",
+    type: "website",
+    url: "https://mide.codes/blog",
+    images: [
+      {
+        url: "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
+        width: 1200,
+        height: 630,
+        alt: "Contact me | Midecodes",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact me | Midecodes",
+    description: "React out, let's work together",
+    images: [
+      "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
+    ],
+  },
+};
 const page = () => {
   return (
     <Suspense fallback={<div>loading</div>}>

@@ -1,5 +1,6 @@
+"use client";
+import { Briefcase, Bug, Code } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
-import { Code, Bug, Briefcase, Users } from "lucide-react";
 import CountUp from "react-countup";
 import { BorderBeam } from "./magicui/border-beam";
 
@@ -117,16 +118,31 @@ const MetricCard = ({
   );
 };
 
-export default function CommunityMetrics({
-  metrics,
-}: {
-  metrics: {
-    products: number;
-    testers: number;
-    frontends: number;
-    backends: number;
+export default function CommunityMetrics() {
+  const [metrics, setMetrics] = useState({
+    frontends: 10,
+    backends: 5,
+    testers: 4,
+    products: 8,
+  });
+  const getVisitors = async () => {
+    try {
+      const response = await fetch("/api/mentor", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+      setMetrics(data.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
-}) {
+  // React.useEffect(() => {
+  //   getVisitors();
+  // }, [refetch]);
+
   const communityMetrics = [
     {
       icon: Code,
