@@ -6,7 +6,7 @@ import React, { Suspense } from "react";
 export const metadata: Metadata = {
   title: "Contact me | Midecodes",
   description: "Sunday Olomitutu, Frontend Developer based in Lagos, Nigeria",
-
+  manifest: "/site.webmanifest",
   keywords: [
     "Mobile developer",
     "Mobile App Developer",

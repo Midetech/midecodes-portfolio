@@ -8,7 +8,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Mentorship with Midecodes",
   description: "Frontend Developer based in Lagos, Nigeria",
-
+  manifest: "/site.webmanifest",
   keywords: [
     "Mobile App Developer",
     "React Developer",

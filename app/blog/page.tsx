@@ -5,6 +5,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Blog Posts | Midecodes' Blog",
   description: "Blog posts by Sunday Olomitutu",
+  manifest: "/site.webmanifest",
   keywords: [
     "Mobile developer",
     "Mobile App Developer",
