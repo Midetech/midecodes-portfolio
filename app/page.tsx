@@ -9,9 +9,10 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Midecodes | Frontend Developer based in Lagos, Nigeria",
-  description: "Frontend Developer based in Lagos, Nigeria",
+  description: "Sunday Olomitutu, Frontend Developer based in Lagos, Nigeria",
 
   keywords: [
+    "Mobile developer",
     "Mobile App Developer",
     "React Developer",
     "Frontend Developer",
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
     "Dart Developer",
     "Javascript Developer",
     "Typescript Developer",
+    "Olomitutu",
   ],
   applicationName: "Midecodes",
 
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
     description: "Frontend Developer based in Lagos, Nigeria",
     images: [
       {
-        url: "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
+        url: "https://mide.codes/icons/apple-touch-icon.png",
         width: 1200,
         height: 630,
         alt: "Midecodes",
@@ -47,9 +49,7 @@ export const metadata: Metadata = {
     creator: "@midecodeable",
     title: "Sunday Olomitutu",
     description: "Frontend Developer based in Lagos, Nigeria",
-    images: [
-      "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
-    ],
+    images: ["https://mide.codes/icons/apple-touch-icon.png"],
   },
 
   authors: {

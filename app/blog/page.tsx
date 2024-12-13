@@ -4,7 +4,23 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Blog Posts | Midecodes' Blog",
-  description: "Read our latest blog posts on various topics.",
+  description: "Blog posts by Sunday Olomitutu",
+  keywords: [
+    "Mobile developer",
+    "Mobile App Developer",
+    "React Developer",
+    "Frontend Developer",
+    "Next.js Developer",
+    "React Native Developer",
+    "Lagos",
+    "Nigeria",
+    "Africa",
+    "Flutter Developer",
+    "Dart Developer",
+    "Javascript Developer",
+    "Typescript Developer",
+    "Olomitutu",
+  ],
   openGraph: {
     title: "Blog Posts | Midecodes' Blog",
     description: "Read our latest blog posts on various topics.",
@@ -12,7 +28,7 @@ export const metadata: Metadata = {
     url: "https://mide.codes/blog",
     images: [
       {
-        url: "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
+        url: "https://mide.codes/icons/apple-touch-icon.png",
         width: 1200,
         height: 630,
         alt: "Blog Posts | Midecodes' Blog",
@@ -23,9 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Blog Posts | Midecodes' Blog",
     description: "Read our latest blog posts on various topics.",
-    images: [
-      "https://res.cloudinary.com/mideveloper/image/upload/v1731019368/mide-image_rhyzgi.png",
-    ],
+    images: ["https://mide.codes/icons/apple-touch-icon.png"],
   },
 };
 
