@@ -220,7 +220,7 @@ const MentorshipForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-black dark:text-white">
-                  Tell me what you are interested in
+                  Why are you interested in this mentorship program?
                 </FormLabel>
                 <FormControl>
                   <Textarea
