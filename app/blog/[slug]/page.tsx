@@ -6,10 +6,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { IPost } from "@/interfaces/post.interface";
 import { getMethod } from "@/services/http-requests";
 import { Dot } from "lucide-react";
-import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { headers } from "next/headers";
 
 type Params = Promise<{ slug: string }>;
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;

@@ -77,7 +77,7 @@ export const GET = async (req: Request) => {
                 .toArray();
         return NextResponse.json({
             status: true,
-            message: 'Posts fetched successfully',
+            message: 'Mentors fetched successfully',
             data: {
                 products: product.length, testers: testers.length, frontends: frontends.length, backends: backends.length
             }

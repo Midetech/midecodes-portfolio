@@ -60,6 +60,28 @@ const MentorshipForm = () => {
     },
   });
 
+  const mentorshipLinksByRole: Record<
+    string,
+    { roadmap_link: string; whatsapp_group_link: string }
+  > = {
+    "Frontend Developer": {
+      roadmap_link: "https://roadmap.sh/r/frontend-1hqss",
+      whatsapp_group_link: "https://chat.whatsapp.com/JzK5yJtrGm53dozyIqoInA",
+    },
+    "Backend Developer": {
+      roadmap_link: "https://roadmap.sh/r/backend-fundamentals",
+      whatsapp_group_link: "https://chat.whatsapp.com/HjaLB4o1sXa33ZZ89vN8uJ",
+    },
+    "Product Manager": {
+      roadmap_link: "https://roadmap.sh/r/product-9yeg3",
+      whatsapp_group_link: "https://chat.whatsapp.com/JxBhMPU3KpVDTS5peX5Pwt",
+    },
+    "Software Tester": {
+      roadmap_link: "https://roadmap.sh/r/qa-dceaz",
+      whatsapp_group_link: "https://chat.whatsapp.com/G7BOxqf8cVD1eoXsewdpUU",
+    },
+  };
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
 
@@ -76,21 +98,37 @@ const MentorshipForm = () => {
       const data = await res.json();
 
       if (data.status) {
-        setLoading(false);
-        setRefetch(true);
-        form.reset();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        toast({
-          title: "✅ Registration Successful",
-          description: data.message,
+        const sendEmailToMentee = await fetch("/api/mentorship", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: values.name,
+            role: values.role,
+            email: values.email,
+            roadmap_link: mentorshipLinksByRole[values.role].roadmap_link,
+            whatsapp_group_link:
+              mentorshipLinksByRole[values.role].whatsapp_group_link,
+          }),
         });
-      } else {
-        setLoading(false);
-        toast({
-          title: "🚫 Registration Already Completed",
-          description: data.message,
-          variant: "destructive",
-        });
+        if (sendEmailToMentee.ok) {
+          setLoading(false);
+          setRefetch(true);
+          form.reset();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          toast({
+            title: "✅ Registration Successful",
+            description: data.message,
+          });
+        } else {
+          setLoading(false);
+          toast({
+            title: "🚫 Registration Already Completed",
+            description: data.message,
+            variant: "destructive",
+          });
+        }
       }
     } catch (error: unknown) {
       setLoading(false);
@@ -180,7 +218,7 @@ const MentorshipForm = () => {
               name="role"
               render={({ field }) => (
                 <FormItem className="flex-1">
-                  <FormLabel>Current Role</FormLabel>
+                  <FormLabel>Select you track</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
