@@ -64,19 +64,19 @@ const MentorshipForm = () => {
     string,
     { roadmap_link: string; whatsapp_group_link: string }
   > = {
-    "Frontend Developer": {
-      roadmap_link: "https://roadmap.sh/r/frontend-1hqss",
+    Frontend: {
+      roadmap_link: "https://roadmap.sh/r/frontend-development-curriculum",
       whatsapp_group_link: "https://chat.whatsapp.com/JzK5yJtrGm53dozyIqoInA",
     },
-    "Backend Developer": {
+    Backend: {
       roadmap_link: "https://roadmap.sh/r/backend-fundamentals",
       whatsapp_group_link: "https://chat.whatsapp.com/HjaLB4o1sXa33ZZ89vN8uJ",
     },
-    "Product Manager": {
+    Product: {
       roadmap_link: "https://roadmap.sh/r/product-9yeg3",
       whatsapp_group_link: "https://chat.whatsapp.com/JxBhMPU3KpVDTS5peX5Pwt",
     },
-    "Software Tester": {
+    QA: {
       roadmap_link: "https://roadmap.sh/r/qa-dceaz",
       whatsapp_group_link: "https://chat.whatsapp.com/G7BOxqf8cVD1eoXsewdpUU",
     },
@@ -233,16 +233,13 @@ const MentorshipForm = () => {
                     </FormControl>
                     <SelectContent>
                       <SelectGroup>
-                        {[
-                          "Frontend Developer",
-                          "Backend Developer",
-                          "Product Manager",
-                          "Software Tester",
-                        ].map((item, index) => (
-                          <SelectItem value={item} key={index}>
-                            {item}
-                          </SelectItem>
-                        ))}
+                        {["Frontend", "Backend", "Product", "QA"].map(
+                          (item, index) => (
+                            <SelectItem value={item} key={index}>
+                              {item}
+                            </SelectItem>
+                          )
+                        )}
                       </SelectGroup>
                     </SelectContent>
                   </Select>
