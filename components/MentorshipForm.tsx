@@ -129,6 +129,13 @@ const MentorshipForm = () => {
             variant: "destructive",
           });
         }
+      } else {
+        setLoading(false);
+        toast({
+          title: "🚫 Registration Already Completed",
+          description: data.message,
+          variant: "destructive",
+        });
       }
     } catch (error: unknown) {
       setLoading(false);
