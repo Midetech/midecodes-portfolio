@@ -18,7 +18,7 @@ const getBlogPost = async (id: string) => {
     queryKey: [
       "posts",
       {
-        route: `https://mide.codes/api/posts/${id}`,
+        route: `https://midecodes-portfolio.netlify.app/api/posts/${id}`,
         params: {},
       },
     ],
